@@ -12,7 +12,7 @@ namespace BCoreIdentity
         {
             return new List<ApiResource>
             {
-                new ApiResource("api", "BCore api")
+                new ApiResource("BCoreIdentityApi", "BCore api")
             };
         }
 
@@ -34,7 +34,7 @@ namespace BCoreIdentity
                     },
 
                     // scopes that client has access to
-                    AllowedScopes = { "api" }
+                    AllowedScopes = { "BCoreIdentityApi" }
                 }
             };
         }

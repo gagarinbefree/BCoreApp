@@ -43,6 +43,13 @@ namespace BCoreApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
+            {
+                Authority = "http://localhost:5000",
+                RequireHttpsMetadata = false,
+                ApiName = "BCoreIdentityApi"
+            });
+
             app.UseMvc();
 
             app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");

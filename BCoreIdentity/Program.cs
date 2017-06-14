@@ -15,7 +15,7 @@ namespace BCoreIdentity
 
             var host = new WebHostBuilder()
                 .UseKestrel()
-                .UseUrls("http://localhost:2117")
+                .UseUrls("http://localhost:5000")
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
