@@ -38,9 +38,7 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BCoreAbstractions\BCoreAbstractions.csproj" />
-    <ProjectReference Include="..\BCoreAbstraction\BCoreAbstraction.csproj" />
+  <ItemGroup>    
     <ProjectReference Include="..\BCoreDal\BCoreDal.csproj" />
   </ItemGroup>
 
