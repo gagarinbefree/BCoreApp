@@ -1,6 +1,7 @@
 ﻿using BCoreDal.Entities;
 using BCoreAbstractions;
 
+
 namespace BCoreDal
 {
     public interface IUoW
