@@ -1,9 +1,7 @@
 ﻿using BCoreDal.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using BCoreAbstractions;
 
-namespace BCoreDal.Contracts
+namespace BCoreDal
 {
     public interface IUoW
     {

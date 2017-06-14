@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCoreDal", "BCoreDal\BCoreDal.csproj", "{2E0758AB-CF1D-4097-9F50-8EF29E113EF0}"
 EndProject
@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCoreApi", "BCoreApi\BCoreA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCore", "BCore\BCore.csproj", "{03050D1A-A9C1-4E3E-ADDA-2499E2DCF2FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCoreIdentity", "BCoreIdentity\BCoreIdentity.csproj", "{DCA80A96-E494-4082-BB20-AEEB19BFD5E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCoreIdentity", "BCoreIdentity\BCoreIdentity.csproj", "{DCA80A96-E494-4082-BB20-AEEB19BFD5E4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCoreAbstractions", "BCoreAbstractions\BCoreAbstractions.csproj", "{9EBE8010-1CB3-4685-9855-468CC4676252}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{DCA80A96-E494-4082-BB20-AEEB19BFD5E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCA80A96-E494-4082-BB20-AEEB19BFD5E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCA80A96-E494-4082-BB20-AEEB19BFD5E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EBE8010-1CB3-4685-9855-468CC4676252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EBE8010-1CB3-4685-9855-468CC4676252}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EBE8010-1CB3-4685-9855-468CC4676252}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EBE8010-1CB3-4685-9855-468CC4676252}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

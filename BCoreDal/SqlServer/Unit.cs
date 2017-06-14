@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using BCoreDal.Entities;
-using BCoreDal.Contracts;
+using BCoreAbstractions;
 
 namespace BCoreDal.SqlServer
 {

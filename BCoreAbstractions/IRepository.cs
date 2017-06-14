@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace BCoreDal.Contracts
+namespace BCoreAbstractions
 {
     public interface IRepository<T>
     {

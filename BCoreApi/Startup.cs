@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using BCoreDal.SqlServer;
-using BCoreDal.Contracts;
+using BCoreDal;
 
 namespace BCoreApi
 {

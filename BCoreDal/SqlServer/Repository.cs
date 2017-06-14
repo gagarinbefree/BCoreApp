@@ -1,4 +1,4 @@
-﻿using BCoreDal.Contracts;
+﻿
 using BCoreDal.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using BCoreAbstractions;
 
 namespace BCoreDal.SqlServer
 {
