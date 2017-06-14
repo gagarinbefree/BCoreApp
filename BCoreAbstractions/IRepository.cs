@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
+
 namespace BCoreAbstractions
 {
     public interface IRepository<T>
