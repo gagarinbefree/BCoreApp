@@ -6,14 +6,14 @@ using System.Text;
 
 namespace BCoreDal.SqlServer
 {
-    public class TempDbContextFactory : IDbContextFactory<Context>
+    public class TempDbContextFactory : IDbContextFactory<SqlServerDbContext>
     {        
-        public Context Create(DbContextFactoryOptions options)
+        public SqlServerDbContext Create(DbContextFactoryOptions options)
         {
-            var builder = new DbContextOptionsBuilder<Context>();
+            var builder = new DbContextOptionsBuilder<SqlServerDbContext>();
             builder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=bcoreapp;Trusted_Connection=True;MultipleActiveResultSets=true");
 
-            return new Context(builder.Options);
+            return new SqlServerDbContext(builder.Options);
         }
     }
 }

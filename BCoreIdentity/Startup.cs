@@ -23,7 +23,7 @@ namespace BCoreIdentity
         {
             string connection = Configuration.GetConnectionString("DevConnection");
 
-            services.AddDbContext<Context>(options =>
+            services.AddDbContext<SqlServerDbContext>(options =>
                options.UseSqlServer(connection));
 
             services.AddIdentityServer()
