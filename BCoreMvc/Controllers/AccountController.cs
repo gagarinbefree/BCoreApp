@@ -14,7 +14,6 @@ using BCoreMvc.Models.AccountViewModels;
 using BCoreMvc.Services;
 using BCoreDal.SqlServer;
 
-
 namespace BCoreMvc.Controllers
 {
     [Authorize]

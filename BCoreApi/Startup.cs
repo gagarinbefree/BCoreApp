@@ -44,9 +44,16 @@ namespace BCoreApi
             services.AddDbContext<SqlServerDbContext>(options =>
                options.UseSqlServer(connection));
 
-            services.AddIdentity<SqlServerAppUser, IdentityRole>()
-                .AddEntityFrameworkStores<SqlServerDbContext>()
-                .AddDefaultTokenProviders();
+            services.AddIdentity<SqlServerAppUser, IdentityRole>(c => {
+                // Identity options
+                c.Password.RequireDigit = false;
+                c.Password.RequireLowercase = false;
+                c.Password.RequireUppercase = false;
+                c.Password.RequireNonAlphanumeric = false;
+                c.Password.RequiredLength = 3;
+            })
+            .AddEntityFrameworkStores<SqlServerDbContext>()
+            .AddDefaultTokenProviders();
 
             services.AddMvc();
 
