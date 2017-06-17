@@ -12,8 +12,8 @@
     <UserSecretsId>aspnet-BCoreApi-f4077691-99a6-49b3-8157-d7ca91a47069</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="1.0.1" />
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="1.2.1" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="1.1.2" />
@@ -36,6 +36,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BCoreDal\BCoreDal.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
 </Project>

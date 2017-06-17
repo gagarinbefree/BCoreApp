@@ -1,40 +1,88 @@
-﻿using IdentityServer4.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-namespace BCoreIdentity
+using IdentityServer4;
+using IdentityServer4.Models;
+using System.Collections.Generic;
+using System.Security.Claims;
+
+namespace IdentityServerWithAspNetIdentity
 {
     public class Config
     {
+        // scopes define the resources in your system
+        public static IEnumerable<IdentityResource> GetIdentityResources()
+        {
+            return new List<IdentityResource>
+            {
+                new IdentityResources.OpenId(),
+                new IdentityResources.Profile(),
+            };
+        }
+
         public static IEnumerable<ApiResource> GetApiResources()
         {
             return new List<ApiResource>
             {
-                new ApiResource("BCoreIdentityApi", "BCore api")
+                new ApiResource("BCoreIdentity", "My API")
             };
         }
 
+        // clients want to access resources (aka scopes)
         public static IEnumerable<Client> GetClients()
         {
+            // client credentials client
             return new List<Client>
             {
                 new Client
                 {
                     ClientId = "client",
-
-                    // no interactive user, use the clientid/secret for authentication
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
 
-                    // secret for authentication
-                    ClientSecrets =
+                    ClientSecrets = 
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    AllowedScopes = { "BCoreIdentity" }
+                },
+
+                // resource owner password grant client
+                new Client
+                {
+                    ClientId = "ro.client",
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+
+                    ClientSecrets = 
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    AllowedScopes = { "BCoreIdentity" }
+                },
+
+                // OpenID Connect hybrid flow and client credentials client (MVC)
+                new Client
+                {
+                    ClientId = "mvc",
+                    ClientName = "MVC Client",
+                    AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
+
+                    RequireConsent = true,
+
+                    ClientSecrets = 
                     {
                         new Secret("secret".Sha256())
                     },
 
-                    // scopes that client has access to
-                    AllowedScopes = { "BCoreIdentityApi" }
+                    RedirectUris = { "http://localhost:5002/signin-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "BCoreIdentity"
+                    },
+                    AllowOfflineAccess = true
                 }
             };
         }

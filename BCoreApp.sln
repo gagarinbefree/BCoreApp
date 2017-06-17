@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCoreDal", "BCoreDal\BCoreDal.csproj", "{2E0758AB-CF1D-4097-9F50-8EF29E113EF0}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCoreAbstractions", "BCoreAbstractions\BCoreAbstractions.csproj", "{23D6475C-416F-4B3F-8914-C7F90DE6B40F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCoreApi", "BCoreApi\BCoreApi.csproj", "{870612DC-F060-4E94-96C9-26E876C60C92}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCoreMvc", "BCoreMvc\BCoreMvc.csproj", "{351A49AD-6E09-46E7-84FF-12E82AC9265C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{870612DC-F060-4E94-96C9-26E876C60C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{870612DC-F060-4E94-96C9-26E876C60C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{870612DC-F060-4E94-96C9-26E876C60C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{351A49AD-6E09-46E7-84FF-12E82AC9265C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{351A49AD-6E09-46E7-84FF-12E82AC9265C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{351A49AD-6E09-46E7-84FF-12E82AC9265C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{351A49AD-6E09-46E7-84FF-12E82AC9265C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

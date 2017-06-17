@@ -39,35 +39,9 @@ namespace BCoreApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
-            string connection = Configuration.GetConnectionString("DevConnection");
-            services.AddDbContext<SqlServerDbContext>(options =>
-               options.UseSqlServer(connection));
-
-            services.AddIdentity<SqlServerAppUser, IdentityRole>(c => {
-                // Identity options
-                c.Password.RequireDigit = false;
-                c.Password.RequireLowercase = false;
-                c.Password.RequireUppercase = false;
-                c.Password.RequireNonAlphanumeric = false;
-                c.Password.RequiredLength = 3;
-            })
-            .AddEntityFrameworkStores<SqlServerDbContext>()
-            .AddDefaultTokenProviders();
-
-            services.AddMvc();
-
-            // Add application services.
-            services.AddTransient<IEmailSender, AuthMessageSender>();
-            services.AddTransient<ISmsSender, AuthMessageSender>();
-
-            // Adds IdentityServer
-            services.AddIdentityServer()
-                .AddTemporarySigningCredential()
-                .AddInMemoryIdentityResources(Config.GetIdentityResources())
-                .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryClients(Config.GetClients())
-                .AddAspNetIdentity<SqlServerAppUser>();
+            services.AddMvcCore()
+                .AddAuthorization()
+                .AddJsonFormatters();
 
             // Add unit of work 
             services.AddScoped<IUoW, SqlServerUnit>();
@@ -79,35 +53,14 @@ namespace BCoreApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            if (env.IsDevelopment())
+            app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
             {
-                app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
-                app.UseBrowserLink();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-
-            app.UseStaticFiles();
-
-            // Adds Identity
-            app.UseIdentity();
-
-            // Adds IdentityServer
-            //app.UseIdentityServer();
-
-            // Add external authentication middleware below. To configure them please see https://go.microsoft.com/fwlink/?LinkID=532715
-            // ...
-            // ...
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                Authority = "http://localhost:5000",
+                RequireHttpsMetadata = false,
+                ApiName = "BCoreIdentity"
             });
+
+            app.UseMvc();
         }
     }
 }
