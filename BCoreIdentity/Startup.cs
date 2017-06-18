@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using IdentityServerWithAspNetIdentity.Data;
-using IdentityServerWithAspNetIdentity.Models;
-using IdentityServerWithAspNetIdentity.Services;
+using BCoreIdentity.Models;
+using BCoreIdentity.Services;
+using BCoreDal.SqlServer;
 
-namespace IdentityServerWithAspNetIdentity
+namespace BCoreIdentity
 {
     public class Startup
     {
@@ -30,11 +30,11 @@ namespace IdentityServerWithAspNetIdentity
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<SqlServerDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddEntityFrameworkStores<SqlServerDbContext>()
                 .AddDefaultTokenProviders();
 
             services.AddMvc();

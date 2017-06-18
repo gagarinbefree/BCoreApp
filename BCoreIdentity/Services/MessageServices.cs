@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace IdentityServerWithAspNetIdentity.Services
+namespace BCoreIdentity.Services
 {
     // This class is used by the application to send Email and SMS
     // when you turn on two-factor authentication in ASP.NET Identity.

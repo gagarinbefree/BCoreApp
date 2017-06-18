@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using IdentityServerWithAspNetIdentity.Models;
-using IdentityServerWithAspNetIdentity.Models.ManageViewModels;
-using IdentityServerWithAspNetIdentity.Services;
+using BCoreIdentity.Models;
+using BCoreIdentity.Models.ManageViewModels;
+using BCoreIdentity.Services;
 using IdentityServer4.UI;
 
-namespace IdentityServerWithAspNetIdentity.Controllers
+namespace BCoreIdentity.Controllers
 {
     [Authorize]
     [SecurityHeaders]

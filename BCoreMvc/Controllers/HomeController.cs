@@ -6,7 +6,7 @@ using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using IdentityModel.Client;
 
-namespace MvcClient.Controllers
+namespace BCoreMvc.Controllers
 {
     public class HomeController : Controller
     {

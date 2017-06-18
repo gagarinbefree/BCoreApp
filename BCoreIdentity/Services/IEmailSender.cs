@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace IdentityServerWithAspNetIdentity.Services
+namespace BCoreIdentity.Services
 {
     public interface IEmailSender
     {

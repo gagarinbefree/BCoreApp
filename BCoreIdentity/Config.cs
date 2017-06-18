@@ -6,7 +6,7 @@ using IdentityServer4.Models;
 using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace IdentityServerWithAspNetIdentity
+namespace BCoreIdentity
 {
     public class Config
     {

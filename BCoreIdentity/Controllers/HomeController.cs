@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using IdentityServer4.Services;
 using IdentityServer4.UI;
 
-namespace IdentityServerWithAspNetIdentity.Controllers
+namespace BCoreIdentity.Controllers
 {
     [SecurityHeaders]
     public class HomeController : Controller

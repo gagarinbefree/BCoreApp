@@ -1,4 +1,4 @@
-﻿namespace IdentityServerWithAspNetIdentity.Models.ManageViewModels
+﻿namespace BCoreIdentity.Models.ManageViewModels
 {
     public class FactorViewModel
     {

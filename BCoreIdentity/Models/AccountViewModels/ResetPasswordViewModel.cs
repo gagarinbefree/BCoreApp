@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace IdentityServerWithAspNetIdentity.Models.AccountViewModels
+namespace BCoreIdentity.Models.AccountViewModels
 {
     public class ResetPasswordViewModel
     {

@@ -7,16 +7,16 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
-using IdentityServerWithAspNetIdentity.Models;
-using IdentityServerWithAspNetIdentity.Models.AccountViewModels;
-using IdentityServerWithAspNetIdentity.Services;
+using BCoreIdentity.Models;
+using BCoreIdentity.Models.AccountViewModels;
+using BCoreIdentity.Services;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Http.Authentication;
 using IdentityServer4.UI;
 using Microsoft.AspNetCore.Http;
 
-namespace IdentityServerWithAspNetIdentity.Controllers
+namespace BCoreIdentity.Controllers
 {
     [Authorize]
     [SecurityHeaders]

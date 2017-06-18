@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
 
-namespace MvcClient
+namespace BCoreMvc
 {
     public class Startup
     {

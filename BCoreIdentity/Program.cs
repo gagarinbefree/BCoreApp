@@ -2,7 +2,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace IdentityServerWithAspNetIdentity
+namespace BCoreIdentity
 {
     public class Program
     {
