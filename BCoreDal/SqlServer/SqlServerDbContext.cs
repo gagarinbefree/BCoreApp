@@ -1,4 +1,4 @@
-﻿using BCoreDal.Entities;
+﻿using BCoreDao;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

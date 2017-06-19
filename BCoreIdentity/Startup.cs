@@ -33,9 +33,15 @@ namespace BCoreIdentity
             services.AddDbContext<SqlServerDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 
-            services.AddIdentity<SqlServerAppUser, IdentityRole>()
-                .AddEntityFrameworkStores<SqlServerDbContext>()
-                .AddDefaultTokenProviders();
+            services.AddIdentity<SqlServerAppUser, IdentityRole>(o => {
+                o.Password.RequireDigit = false;
+                o.Password.RequireLowercase = false;
+                o.Password.RequireUppercase = false;
+                o.Password.RequireNonAlphanumeric = false;
+                o.Password.RequiredLength = 3;
+            })
+            .AddEntityFrameworkStores<SqlServerDbContext>()
+            .AddDefaultTokenProviders();
 
             services.AddMvc();
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace BCoreDal.Entities
+namespace BCoreDao
 {
     public class Entity
     {

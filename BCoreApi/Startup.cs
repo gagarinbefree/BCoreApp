@@ -10,8 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using BCoreApi.Services;
-using BCoreDal.SqlServer;
+using BCoreDao;
 using BCoreDal;
+using BCoreDal.SqlServer;
 
 namespace BCoreApi
 {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BCoreDal.Entities
+namespace BCoreDao
 {
     public class Hash : Entity
     {

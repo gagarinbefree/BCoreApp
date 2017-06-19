@@ -1,5 +1,5 @@
 ﻿using System;
-using BCoreDal.Entities;
+using BCoreDao;
 using BCoreAbstractions;
 
 namespace BCoreDal.SqlServer

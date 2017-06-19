@@ -1,6 +1,5 @@
-﻿using BCoreDal.Entities;
-using BCoreAbstractions;
-
+﻿using BCoreAbstractions;
+using BCoreDao;
 
 namespace BCoreDal
 {

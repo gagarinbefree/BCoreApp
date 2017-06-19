@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace BCoreDal.Entities
+namespace BCoreDao
 {
     public class Post : Entity
     {

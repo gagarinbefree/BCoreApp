@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BCoreDal.Entities;
 using BCoreDal.SqlServer;
+using BCoreDao;
 
 namespace BCoreApi.Controllers
 {
