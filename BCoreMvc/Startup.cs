@@ -61,7 +61,7 @@ namespace BCoreMvc
                 ClientSecret = "secret",
 
                 ResponseType = "code id_token",
-                Scope = { "BCoreIdentityApi", "offline_access" },
+                Scope = { "BCoreIdentity", "offline_access" },
 
                 GetClaimsFromUserInfoEndpoint = true,
                 SaveTokens = true
