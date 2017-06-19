@@ -8,6 +8,7 @@ using BCoreIdentity.Models;
 using BCoreIdentity.Models.ManageViewModels;
 using BCoreIdentity.Services;
 using IdentityServer4.UI;
+using BCoreDal.SqlServer;
 
 namespace BCoreIdentity.Controllers
 {
@@ -15,15 +16,15 @@ namespace BCoreIdentity.Controllers
     [SecurityHeaders]
     public class ManageController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<SqlServerAppUser> _userManager;
+        private readonly SignInManager<SqlServerAppUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
 
         public ManageController(
-        UserManager<ApplicationUser> userManager,
-        SignInManager<ApplicationUser> signInManager,
+        UserManager<SqlServerAppUser> userManager,
+        SignInManager<SqlServerAppUser> signInManager,
         IEmailSender emailSender,
         ISmsSender smsSender,
         ILoggerFactory loggerFactory)
@@ -350,7 +351,7 @@ namespace BCoreIdentity.Controllers
             Error
         }
 
-        private Task<ApplicationUser> GetCurrentUserAsync()
+        private Task<SqlServerAppUser> GetCurrentUserAsync()
         {
             return _userManager.GetUserAsync(HttpContext.User);
         }

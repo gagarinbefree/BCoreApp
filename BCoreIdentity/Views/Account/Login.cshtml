@@ -1,8 +1,9 @@
 ﻿@using System.Collections.Generic
 @using Microsoft.AspNetCore.Http
 @using Microsoft.AspNetCore.Http.Authentication
+@using BCoreDal.SqlServer
 @model LoginViewModel
-@inject SignInManager<ApplicationUser> SignInManager
+@inject SignInManager<SqlServerAppUser> SignInManager
 
 @{
     ViewData["Title"] = "Log in";

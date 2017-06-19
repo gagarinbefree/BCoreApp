@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+@using BCoreDal.SqlServer
+@inject SignInManager<SqlServerAppUser> SignInManager
+@inject UserManager<SqlServerAppUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {

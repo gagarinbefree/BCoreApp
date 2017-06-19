@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "MvcClient": {
+    "BCoreMvc": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "http://localhost:5002",

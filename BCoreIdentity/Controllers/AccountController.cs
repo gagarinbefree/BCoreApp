@@ -15,6 +15,7 @@ using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Http.Authentication;
 using IdentityServer4.UI;
 using Microsoft.AspNetCore.Http;
+using BCoreDal.SqlServer;
 
 namespace BCoreIdentity.Controllers
 {
@@ -22,8 +23,8 @@ namespace BCoreIdentity.Controllers
     [SecurityHeaders]
     public class AccountController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<SqlServerAppUser> _userManager;
+        private readonly SignInManager<SqlServerAppUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
@@ -32,8 +33,8 @@ namespace BCoreIdentity.Controllers
         private readonly AccountService _account;
 
         public AccountController(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
+            UserManager<SqlServerAppUser> userManager,
+            SignInManager<SqlServerAppUser> signInManager,
             IEmailSender emailSender,
             ISmsSender smsSender,
             ILoggerFactory loggerFactory,
@@ -231,7 +232,7 @@ namespace BCoreIdentity.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new SqlServerAppUser { UserName = model.Email, Email = model.Email };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -267,7 +268,7 @@ namespace BCoreIdentity.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new SqlServerAppUser { UserName = model.Email, Email = model.Email };
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -506,7 +507,7 @@ namespace BCoreIdentity.Controllers
             }
         }
 
-        private Task<ApplicationUser> GetCurrentUserAsync()
+        private Task<SqlServerAppUser> GetCurrentUserAsync()
         {
             return _userManager.GetUserAsync(HttpContext.User);
         }

@@ -33,7 +33,7 @@ namespace BCoreIdentity
             services.AddDbContext<SqlServerDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<SqlServerAppUser, IdentityRole>()
                 .AddEntityFrameworkStores<SqlServerDbContext>()
                 .AddDefaultTokenProviders();
 
@@ -49,7 +49,7 @@ namespace BCoreIdentity
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
-                .AddAspNetIdentity<ApplicationUser>();
+                .AddAspNetIdentity<SqlServerAppUser>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
