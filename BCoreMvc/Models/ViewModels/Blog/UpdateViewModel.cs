@@ -1,9 +1,10 @@
-﻿using System;
+﻿using BCoreMvc.Models.ViewModels.Blog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BCoreMvc.Models.ViewModels.Blog
+namespace BCoreMvc.Models.Commands
 {
     public class UpdateViewModel
     {
