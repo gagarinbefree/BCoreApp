@@ -10,11 +10,14 @@ using BCoreMvc.Models.ViewModels.Blog;
 using System.Collections.Generic;
 using System;
 using BCoreDao;
+using BCoreMvc.Models.Commands;
 
 namespace BCoreMvc
 {
     public class Startup
     {
+        public IConfigurationRoot Configuration { get; }
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -24,15 +27,15 @@ namespace BCoreMvc
                 .AddEnvironmentVariables();
 
             Configuration = builder.Build();
-        }
-
-        public IConfigurationRoot Configuration { get; }
+        }       
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
 
             _autoMapperConfig(services);
+
+            services.AddSingleton<IConfiguration>(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

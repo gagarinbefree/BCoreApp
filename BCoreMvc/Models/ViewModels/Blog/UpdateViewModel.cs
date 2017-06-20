@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BCoreMvc.Models.Commands
+namespace BCoreMvc.Models.ViewModels.Blog
 {
     public class UpdateViewModel
     {

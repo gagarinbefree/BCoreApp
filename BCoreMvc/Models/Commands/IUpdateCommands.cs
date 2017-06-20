@@ -1,4 +1,5 @@
 ﻿using BCoreMvc.Models.Commands;
+using BCoreMvc.Models.ViewModels.Blog;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;

@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using BCore.Models.Commands;
+using BCoreMvc.Models.ViewModels.Blog;
 
 namespace BCoreMvc.Models.Commands.Api
 {
