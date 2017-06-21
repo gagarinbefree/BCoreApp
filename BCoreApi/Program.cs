@@ -18,6 +18,8 @@ namespace BCoreApi
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .UseApplicationInsights()
+                .CaptureStartupErrors(true)
+                .UseSetting("detailedErrors", "true")
                 .Build();
 
             host.Run();

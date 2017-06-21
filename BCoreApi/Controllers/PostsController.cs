@@ -18,8 +18,8 @@ namespace BCoreApi.Controllers
             _unit = unit;
         }
         
-        [HttpGet]
-        [Route("api/Posts")]
+        [HttpGet("/api/Posts")]
+        //[Route("api/Posts")]
         public async Task<IActionResult> GetPosts()
         {
             ICollection<Post> posts = await _unit.PostRepository.GetAllAsync(take: 1000);

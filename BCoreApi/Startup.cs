@@ -40,6 +40,11 @@ namespace BCoreApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connection = Configuration.GetConnectionString("DevConnection");
+
+            services.AddDbContext<SqlServerDbContext>(options =>
+                options.UseSqlServer(connection));
+
             services.AddMvcCore()
                 .AddAuthorization()
                 .AddJsonFormatters();
@@ -51,6 +56,8 @@ namespace BCoreApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UseDeveloperExceptionPage();
+
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
@@ -61,7 +68,7 @@ namespace BCoreApi
                 ApiName = "BCoreIdentity"
             });
 
-            app.UseMvc();
+            app.UseMvc();            
         }
     }
 }

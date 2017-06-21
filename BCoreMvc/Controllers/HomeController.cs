@@ -66,7 +66,7 @@ namespace BCoreMvc.Controllers
 
             var client = new HttpClient();
             client.SetBearerToken(accessToken);
-            var content = await client.GetStringAsync("http://localhost:5001/identity");
+            var content = await client.GetStringAsync("http://localhost:5001/api/identity");
 
             ViewBag.Json = JArray.Parse(content).ToString();
 
