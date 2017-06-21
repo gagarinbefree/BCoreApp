@@ -5,19 +5,31 @@ using Microsoft.AspNetCore.Authentication;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using IdentityModel.Client;
+using BCoreMvc.Models.Commands.Api;
 
 namespace BCoreMvc.Controllers
 {
     public class HomeController : Controller
     {
         public IActionResult Index()
-        {
+        {            
             return View();
         }
 
         [Authorize]
-        public IActionResult Secure()
+        public async Task<IActionResult> Secure()
         {
+            /*var tokenClient = new TokenClient("http://localhost:5000/connect/token", "mvc", "secret");
+            var tokenResponse = await tokenClient.RequestClientCredentialsAsync("BCoreIdentityApi");
+
+            var client = new HttpClient();
+            client.SetBearerToken(tokenResponse.AccessToken);
+            var content = await client.GetStringAsync("http://localhost:5001/api/identity");*/
+
+            ///PostCommands c = new PostCommands();
+            ///c.GetPostById()
+
+
             ViewData["Message"] = "Secure page.";
 
             return View();
@@ -44,6 +56,7 @@ namespace BCoreMvc.Controllers
             var content = await client.GetStringAsync("http://localhost:5001/api/identity");
 
             ViewBag.Json = JArray.Parse(content).ToString();
+
             return View("json"); 
         }
 
@@ -56,6 +69,7 @@ namespace BCoreMvc.Controllers
             var content = await client.GetStringAsync("http://localhost:5001/identity");
 
             ViewBag.Json = JArray.Parse(content).ToString();
+
             return View("json");
         }
     }

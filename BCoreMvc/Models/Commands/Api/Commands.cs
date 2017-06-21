@@ -27,7 +27,7 @@ namespace BCoreMvc.Models.Commands.Api
         {
             string json = "";
             using (HttpClient client = new HttpClient())
-            using (HttpResponseMessage response = await client.GetAsync(String.Format("{0}/Posts/{1}", ApiURL, id)))
+            using (HttpResponseMessage response = await client.GetAsync(url))
             using (HttpContent content = response.Content)
             {
                 json = await content.ReadAsStringAsync();

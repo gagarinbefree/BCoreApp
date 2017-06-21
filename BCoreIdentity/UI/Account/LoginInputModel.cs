@@ -9,6 +9,7 @@ namespace IdentityServer4.UI
     public class LoginInputModel
     {
         [Required]
+        [Display(Name = "User name")]
         public string UserName { get; set; }
         [Required]
         public string Password { get; set; }
