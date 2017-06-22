@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System;
 using BCoreDao;
 using BCoreMvc.Models.Commands;
+using BCoreMvc.Models.Commands.Api;
 
 namespace BCoreMvc
 {
@@ -36,6 +37,9 @@ namespace BCoreMvc
             _autoMapperConfig(services);
 
             services.AddSingleton<IConfiguration>(Configuration);
+
+            // Add unit of work 
+            services.AddScoped<IPostCommands, PostCommands>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

@@ -18,6 +18,17 @@ namespace BCoreMvc.Models.Commands.Api
 
         }
 
+        public async Task<List<Post>> GetAll()
+        {
+            await Post<Post>($"{ApiURL}/Posts", new Post
+            {
+                CreatedOn = DateTime.Now,
+                UserId = "c93c21f8-ea94-46af-b4d2-6ea2d18a137d"
+
+            });
+            return await Get<List<Post>>($"{ApiURL}/Posts");
+        }
+
         public async Task<PostViewModel> GetPostById(Guid id, ClaimsPrincipal user)
         {
             Post post = await Get<Post>(String.Format("{0}/Posts/{1}", ApiURL, id));
@@ -49,6 +60,6 @@ namespace BCoreMvc.Models.Commands.Api
         public Task<Guid> SubmitCommentsAsync(PostViewModel model, ClaimsPrincipal user)
         {
             throw new NotImplementedException();
-        }
+        }       
     }
 }

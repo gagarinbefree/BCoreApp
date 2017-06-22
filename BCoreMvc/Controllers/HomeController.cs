@@ -6,13 +6,24 @@ using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using IdentityModel.Client;
 using BCoreMvc.Models.Commands.Api;
+using BCoreMvc.Models.Commands;
+using System;
 
 namespace BCoreMvc.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private IPostCommands _cmd;
+
+        public HomeController(IPostCommands cmd)
+        {
+            _cmd = cmd;
+        }
+
+        public async Task<IActionResult> Index()
         {            
+            var xxx = await _cmd.GetAll();
+
             return View();
         }
 
@@ -25,10 +36,6 @@ namespace BCoreMvc.Controllers
             var client = new HttpClient();
             client.SetBearerToken(tokenResponse.AccessToken);
             var content = await client.GetStringAsync("http://localhost:5001/api/identity");*/
-
-            ///PostCommands c = new PostCommands();
-            ///c.GetPostById()
-
 
             ViewData["Message"] = "Secure page.";
 
