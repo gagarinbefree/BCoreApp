@@ -8,27 +8,30 @@ using System.Threading;
 using Newtonsoft.Json;
 using AutoMapper;
 using System.Text;
+using Microsoft.AspNetCore.Authentication;
+
 
 namespace BCoreMvc.Models.Commands.Api
 {
     public class Commands
     {
         private IConfiguration _configuration { get; }
-        protected string ApiURL { get; }
-        protected IMapper Mapper { get; }
+        protected Uri ApiPath { get; }
+        protected IMapper Mapper { get; }        
 
         public Commands(IConfiguration configuration, IMapper mapper)
         {
             _configuration = configuration;
-            ApiURL = _configuration.GetValue<string>("ApiURL");
+            ApiPath = new Uri(_configuration.GetValue<string>("ApiURL"));
             Mapper = mapper;
+            User.Claims
         }
 
-        protected async Task<T> Get<T>(string url)
+        protected async Task<T> Get<T>(string path)
         {
             string json = "";
-            using (HttpClient client = new HttpClient())
-            using (HttpResponseMessage response = await client.GetAsync(url))
+            using (HttpClient client = new HttpClient { BaseAddress = ApiPath })
+            using (HttpResponseMessage response = await client.GetAsync(path))
             using (HttpContent content = response.Content)
             {
                 json = await content.ReadAsStringAsync();
@@ -37,24 +40,19 @@ namespace BCoreMvc.Models.Commands.Api
             return JsonConvert.DeserializeObject<T>(json);
         }
 
-        protected async Task<T> Post<T>(string url, T item)
+        protected async Task<T> Post<T>(string path, T item)
         {
-            /*var serializer = new JavaScriptSerializer();
-            var json = serializer.Serialize(model);
-            var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-            return await client.PostAsync(requestUrl, stringContent);*/
-
-            var jsonContent = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
             string json = "";
-            using (HttpClient client = new HttpClient())
-            using (HttpResponseMessage response = await client.PostAsync(url, jsonContent))
+            StringContent strContent = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");            
+            using (HttpClient client = new HttpClient { BaseAddress = ApiPath })
+            using (HttpResponseMessage response = await client.PostAsync(path, strContent))
             using (HttpContent content = response.Content)
             {
                 json = await content.ReadAsStringAsync();
             }
 
             return JsonConvert.DeserializeObject<T>(json);
-        }
+        }        
     }
 }
 

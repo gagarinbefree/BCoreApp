@@ -20,29 +20,28 @@ namespace BCoreMvc.Models.Commands.Api
 
         public async Task<List<Post>> GetAll()
         {
-            await Post<Post>($"{ApiURL}/Posts", new Post
-            {
-                CreatedOn = DateTime.Now,
-                UserId = "c93c21f8-ea94-46af-b4d2-6ea2d18a137d"
-
-            });
-            return await Get<List<Post>>($"{ApiURL}/Posts");
+            return await Get<List<Post>>($"{ApiPath}/Posts");
         }
 
         public async Task<PostViewModel> GetPostById(Guid id, ClaimsPrincipal user)
         {
-            Post post = await Get<Post>(String.Format("{0}/Posts/{1}", ApiURL, id));
+            Post post = await Get<Post>($"Posts/{id}");
 
-            List<Part> parts = await Get<List<Part>>(String.Format("{0}/Posts/{1}/Parts", ApiURL, id));
+            List<Part> parts = await Get<List<Part>>($"Posts/{id}/Parts");
             post.Parts = parts.OrderBy(f => f.CreatedOn).ToList();
 
-            List<Comment> comments = await Get<List<Comment>>(String.Format("{0}/Posts/{1}/Comments", ApiURL, id));
+            List<Comment> comments = await Get<List<Comment>>($"/Posts/{id}/Comments");
             post.Comments = comments.OrderByDescending(f => f.CreatedOn).ToList();
 
-            var model = Mapper.Map<PostViewModel>(post);                        
+            List<Hash> hashes = await Get<List<Hash>>($"/Posts/{id}/Hashes");
+            post.Hashes = hashes;
 
+            var model = Mapper.Map<PostViewModel>(post);
             model.StatusLine = new PostStatusLineViewModel();
             model.IsPreview = false;
+
+            //model.StatusLine.IsEditable = userId == model.UserId;
+
 
             return model;
         }
