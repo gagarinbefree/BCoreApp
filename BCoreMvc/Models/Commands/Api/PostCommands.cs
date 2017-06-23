@@ -40,8 +40,8 @@ namespace BCoreMvc.Models.Commands.Api
             model.StatusLine = new PostStatusLineViewModel();
             model.IsPreview = false;
 
+            /// ???
             //model.StatusLine.IsEditable = userId == model.UserId;
-
 
             return model;
         }
