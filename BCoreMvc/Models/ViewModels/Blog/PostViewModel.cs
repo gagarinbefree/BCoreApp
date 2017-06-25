@@ -22,5 +22,14 @@ namespace BCoreMvc.Models.ViewModels.Blog
         {            
             Parts = new List<PartViewModel>();
         }
+
+        public void Editable(string userId)
+        {
+            if (String.IsNullOrWhiteSpace(userId))
+                return;
+
+            StatusLine.IsEditable = UserId == userId;
+            Comments.ForEach(f => f.StatusLine.IsEditable = f.UserId == userId);
+        }
     }
 }

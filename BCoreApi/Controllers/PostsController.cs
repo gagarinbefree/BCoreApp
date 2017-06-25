@@ -5,26 +5,39 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BCoreDao;
 using BCoreDal;
+using Microsoft.Extensions.Primitives;
+using Microsoft.Extensions.Configuration;
+using System.Data.SqlClient;
 
 namespace BCoreApi.Controllers
 {
     [Produces("application/json")]    
     public class PostsController : Controller
     {
+        private IConfiguration _configuration;
         private IUoW _unit;
 
-        public PostsController(IUoW unit)
+        public PostsController(IConfiguration configuration, IUoW unit)
         {
-            _unit = unit;
+            _configuration = configuration;
+            _unit = unit;            
         }
-        
+
         [HttpGet("/api/Posts")]
         //[Route("api/Posts")]
-        public async Task<IActionResult> GetPosts()
-        {
-            ICollection<Post> posts = await _unit.PostRepository.GetAllAsync(take: 1000);
-
-            return Ok(posts);
+        public async Task<IActionResult> GetPosts(int? page = null)
+        {            
+            if (page != null)
+            {                
+                int pageSize = _configuration.GetValue<int>("DefaultPageSize");                
+             
+                return Ok(await _unit.PostRepository.GetAllAsync<DateTime>(orderBy: f => f.CreatedOn,
+                    sort: SortOrder.Descending,
+                    skip: ((page - 1) * pageSize),
+                    take: pageSize));
+            } 
+            else
+                return Ok(await _unit.PostRepository.GetAllAsync(take: 1000));            
         }
         
         [HttpGet]

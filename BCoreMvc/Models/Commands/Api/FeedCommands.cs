@@ -5,19 +5,30 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using BCoreMvc.Models.ViewModels.Blog;
+using Microsoft.Extensions.Configuration;
+using BCoreDao;
 
 namespace BCoreMvc.Models.Commands.Api
 {
-    public class FeedCommands : IFeedCommands
+    public class FeedCommands : Commands, IFeedCommands
     {
-        public Task<FeedViewModel> GetLastPostsAsync(ClaimsPrincipal user, int? page = default(int?))
+        public FeedCommands(IConfiguration configuration, IMapper mapper)
+            : base(configuration, mapper)
         {
-            throw new NotImplementedException();
+
+        }
+
+        public async Task<FeedViewModel> GetLastPostsAsync(ClaimsPrincipal user, int? page = null)
+        {
+            List<Post> posts = await Get<List<Post>>($"Posts", page);
+
+            return null; //????????
         }
 
         public Task<FeedViewModel> SearchPostsByTagAsync(string tag, ClaimsPrincipal user, int? page = default(int?))
         {
             throw new NotImplementedException();
         }
+
     }
 }

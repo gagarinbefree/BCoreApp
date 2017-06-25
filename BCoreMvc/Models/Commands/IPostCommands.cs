@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 namespace BCoreMvc.Models.Commands
 {
     public interface IPostCommands
-    {
-        Task<List<Post>> GetAll();
-        Task<PostViewModel> GetPostById(Guid id,ClaimsPrincipal user);        
-        Task<Hash> GetHashById(Guid id);
-        Task<int> DeleteCommentAsync(Guid id, ClaimsPrincipal user);
-        Task<Guid> SubmitCommentsAsync(PostViewModel model, ClaimsPrincipal user);
+    {        
+        Task<PostViewModel> GetPostById(Guid id,ClaimsPrincipal user);
+        Task<Hash> GetHashById(Guid postId, Guid hashId)
+        Task<int> DeleteCommentAsync(Guid postId, Guid commentId, ClaimsPrincipal user)
+        Task<Comment> SubmitCommentsAsync(PostViewModel model, ClaimsPrincipal user);
     }
 }

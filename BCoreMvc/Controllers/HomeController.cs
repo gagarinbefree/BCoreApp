@@ -13,7 +13,7 @@ namespace BCoreMvc.Controllers
 {
     public class HomeController : Controller
     {
-        private IPostCommands _cmd;
+        private IPostCommands _cmd;        
 
         public HomeController(IPostCommands cmd)
         {
@@ -22,7 +22,8 @@ namespace BCoreMvc.Controllers
 
         public async Task<IActionResult> Index()
         {            
-            var xxx = await _cmd.GetAll();
+
+            //var xxx = await _cmd.GetAll();
 
             return View();
         }
@@ -30,6 +31,8 @@ namespace BCoreMvc.Controllers
         [Authorize]
         public async Task<IActionResult> Secure()
         {
+            var user = HttpContext.User;
+
             /*var tokenClient = new TokenClient("http://localhost:5000/connect/token", "mvc", "secret");
             var tokenResponse = await tokenClient.RequestClientCredentialsAsync("BCoreIdentityApi");
 
