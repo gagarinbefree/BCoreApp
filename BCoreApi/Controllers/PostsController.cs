@@ -8,6 +8,7 @@ using BCoreDal;
 using Microsoft.Extensions.Primitives;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
+using System.Linq.Expressions;
 
 namespace BCoreApi.Controllers
 {
@@ -23,23 +24,36 @@ namespace BCoreApi.Controllers
             _unit = unit;            
         }
 
+
         [HttpGet("/api/Posts")]
-        //[Route("api/Posts")]
-        public async Task<IActionResult> GetPosts(int? page = null)
-        {            
-            if (page != null)
-            {                
-                int pageSize = _configuration.GetValue<int>("DefaultPageSize");                
-             
-                return Ok(await _unit.PostRepository.GetAllAsync<DateTime>(orderBy: f => f.CreatedOn,
-                    sort: SortOrder.Descending,
-                    skip: ((page - 1) * pageSize),
-                    take: pageSize));
-            } 
-            else
-                return Ok(await _unit.PostRepository.GetAllAsync(take: 1000));            
+        public async Task<IActionResult> GetPosts()
+        {
+            return Ok(await _unit.PostRepository.GetAllAsync(take: 1000));
         }
-        
+
+        [HttpGet("/api/Posts?page={page}")]
+        public async Task<IActionResult> GetPosts(int page)
+        {            
+            int pageSize = _configuration.GetValue<int>("DefaultPageSize");
+
+            return Ok(await _unit.PostRepository.GetAllAsync<DateTime>(orderBy: f => f.CreatedOn,
+                sort: SortOrder.Descending,
+                skip: ((page - 1) * pageSize),
+                take: pageSize));
+        }
+
+        [HttpGet("/api/Posts?userid={userid}&page={page}")]
+        public async Task<IActionResult> GetPosts(string userid, int page)
+        {
+            int pageSize = _configuration.GetValue<int>("DefaultPageSize");
+
+            return Ok(await _unit.PostRepository.GetAllAsync<DateTime>(orderBy: f => f.CreatedOn,
+                sort: SortOrder.Descending,
+                where: f => f.UserId == userid,
+                skip: ((page - 1) * pageSize),
+                take: pageSize));
+        }
+
         [HttpGet]
         [Route("api/Posts/{id}")]        
         public async Task<IActionResult> GetPost([FromRoute] Guid id)

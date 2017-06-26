@@ -37,5 +37,24 @@ namespace BCoreApi.Controllers
 
             return Ok(postHashes);
         }
+
+        [HttpPost]
+        [Route("api/PostHashes")]
+        public async Task<IActionResult> PostPostHashes([FromBody] PostHash postHash)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            try
+            {
+                await _unit.PostHashRepository.CreateAsync(postHash);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return CreatedAtAction("GetPostHash", new { hashId = postHash.HashId }, postHash);
+        }
     }
 }

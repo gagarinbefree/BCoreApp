@@ -83,6 +83,5 @@ namespace BCoreMvc.Models.Commands.Api
 
             return model;
         }
-
     }
 }
