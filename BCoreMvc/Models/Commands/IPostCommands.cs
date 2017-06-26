@@ -10,8 +10,8 @@ namespace BCoreMvc.Models.Commands
     public interface IPostCommands
     {        
         Task<PostViewModel> GetPostById(Guid id,ClaimsPrincipal user);
-        Task<Hash> GetHashById(Guid postId, Guid hashId)
-        Task<int> DeleteCommentAsync(Guid postId, Guid commentId, ClaimsPrincipal user)
+        Task<Hash> GetHashById(Guid postId, Guid hashId);
+        Task<int> DeleteCommentAsync(Guid postId, Guid commentId, ClaimsPrincipal user);
         Task<Comment> SubmitCommentsAsync(PostViewModel model, ClaimsPrincipal user);
     }
 }

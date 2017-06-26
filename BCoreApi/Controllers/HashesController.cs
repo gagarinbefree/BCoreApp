@@ -19,6 +19,17 @@ namespace BCoreApi.Controllers
         }
 
         [HttpGet]
+        [Route("api/Hashes/{tag}")]
+        public async Task<IActionResult> GetHashes([FromRoute] string tag)
+        {
+            Hash hash = await _unit.HashRepository.GetAsync(f => f.Tag.ToUpper().Trim() == tag);
+            if (hash == null)
+                return NotFound();
+            
+            return Ok(hash);
+        }
+
+        [HttpGet]
         [Route("api/Posts/{id}/Hashes")]
         public async Task<IActionResult> GetHashes([FromRoute] Guid id)
         {

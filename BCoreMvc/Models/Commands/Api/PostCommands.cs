@@ -28,6 +28,9 @@ namespace BCoreMvc.Models.Commands.Api
 
             List<Comment> comments = await Get<List<Comment>>($"Posts/{id}/Comments");
             post.Comments = comments.OrderByDescending(f => f.CreatedOn).ToList();
+            
+            List<Hash> hashes = await Get<List<Hash>>($"Posts/{id}/Hashes");
+            post.Hashes = hashes;
 
             var model = Mapper.Map<PostViewModel>(post);                        
             model.StatusLine = new PostStatusLineViewModel();

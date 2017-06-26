@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BCoreDal.SqlServer;
 using BCoreDao;
+using Microsoft.Extensions.Configuration;
+using BCoreDal;
 
 namespace BCoreApi.Controllers
 {
@@ -14,113 +16,26 @@ namespace BCoreApi.Controllers
     [Route("api/PostHashes")]
     public class PostHashesController : Controller
     {
-        private readonly SqlServerDbContext _context;
+        private IConfiguration _configuration;
+        private IUoW _unit;
 
-        public PostHashesController(SqlServerDbContext context)
+        public PostHashesController(IConfiguration configuration, IUoW unit)
         {
-            _context = context;
+            _configuration = configuration;
+            _unit = unit;
         }
-
-        // GET: api/PostHashes
-        [HttpGet]
-        public IEnumerable<PostHash> GetPostHashes()
-        {
-            return _context.PostHashes;
-        }
-
-        // GET: api/PostHashes/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetPostHash([FromRoute] Guid id)
+        
+        [HttpGet("api/PostHashes/{hashId}")]
+        public async Task<IActionResult> GetPostHash([FromRoute] Guid hashId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var postHash = await _context.PostHashes.SingleOrDefaultAsync(m => m.Id == id);
+            ICollection<PostHash> postHashes = await _unit.PostHashRepository.GetAllAsync(where: f => f.HashId == hashId, take: 1000);            
 
-            if (postHash == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(postHash);
-        }
-
-        // PUT: api/PostHashes/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPostHash([FromRoute] Guid id, [FromBody] PostHash postHash)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != postHash.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(postHash).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PostHashExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/PostHashes
-        [HttpPost]
-        public async Task<IActionResult> PostPostHash([FromBody] PostHash postHash)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            _context.PostHashes.Add(postHash);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetPostHash", new { id = postHash.Id }, postHash);
-        }
-
-        // DELETE: api/PostHashes/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePostHash([FromRoute] Guid id)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var postHash = await _context.PostHashes.SingleOrDefaultAsync(m => m.Id == id);
-            if (postHash == null)
-            {
-                return NotFound();
-            }
-
-            _context.PostHashes.Remove(postHash);
-            await _context.SaveChangesAsync();
-
-            return Ok(postHash);
-        }
-
-        private bool PostHashExists(Guid id)
-        {
-            return _context.PostHashes.Any(e => e.Id == id);
+            return Ok(postHashes);
         }
     }
 }
