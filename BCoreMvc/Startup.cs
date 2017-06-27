@@ -12,6 +12,7 @@ using System;
 using BCoreDao;
 using BCoreMvc.Models.Commands;
 using BCoreMvc.Models.Commands.Api;
+using Backload.MiddleWare;
 
 namespace BCoreMvc
 {
@@ -83,6 +84,7 @@ namespace BCoreMvc
             
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
+            app.UseBackload();
         }
 
         private void _autoMapperConfig(IServiceCollection services)

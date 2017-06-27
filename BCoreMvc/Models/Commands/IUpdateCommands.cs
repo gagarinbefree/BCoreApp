@@ -4,7 +4,7 @@ using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace BCore.Models.Commands
+namespace BCoreMvc.Models.Commands
 {
     public interface IUpdateCommands
     {
