@@ -1,0 +1,6 @@
+﻿@model BCoreMvc.Models.ViewModels.Blog.FeedViewModel
+
+@using BCoreMvc.Models.Extensions
+
+@await Html.PartialAsync("_RecentPosts", Model.RecentPosts, nameof(Model.RecentPosts))
+

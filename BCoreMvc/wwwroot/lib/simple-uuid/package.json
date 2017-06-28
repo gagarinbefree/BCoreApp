@@ -1,0 +1,28 @@
+{
+  "name": "simple-uuid",
+  "version": "1.0.1",
+  "description": "Simple UUID generation",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://TylerGarlick@github.com/TylerGarlick/simple-uuid"
+  },
+  "keywords": [
+    "uuid",
+    "guid"
+  ],
+  "author": "Tyler Garlick <tjgarlick@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TylerGarlick/simple-uuid/issues"
+  },
+  "homepage": "https://github.com/TylerGarlick/simple-uuid",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "lodash": "^2.4.1",
+    "mocha": "^2.1.0"
+  }
+}

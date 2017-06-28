@@ -1,0 +1,12 @@
+﻿@model List<BCoreMvc.Models.ViewModels.Blog.CommentViewModel>
+
+<div class="margin-top">   
+    @foreach (var comment in Model)
+    {
+        @await Html.PartialAsync("_CommentStatusLine", comment)
+
+        <div>
+            <small>@comment.Text</small>
+        </div>
+    }
+</div>

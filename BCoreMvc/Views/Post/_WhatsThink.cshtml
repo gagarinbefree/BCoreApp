@@ -1,0 +1,13 @@
+﻿@model BCoreMvc.Models.ViewModels.Blog.PostViewModel
+
+<form id="commentForm" asp-action="CommentSubmit" asp-controller="Post" method="post">    
+    <div class="form-group">
+        <textarea id="commentInput" asp-for="Comment.Text" class="form-control" rows="1">@Model.Comment.Text</textarea>
+    </div>
+    <div class="btn-group">
+        <button id="commentSubmitButton" type="submit" class="btn btn-success">
+            <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> submit
+        </button>
+    </div>    
+    <input asp-for="Id" value="@Model.Id" type="hidden" />
+</form>

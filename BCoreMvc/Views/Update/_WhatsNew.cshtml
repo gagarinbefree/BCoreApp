@@ -1,0 +1,36 @@
+﻿@model BCoreMvc.Models.ViewModels.Blog.WhatsNewViewModel
+
+<form id="whatsNewForm" asp-action="Submit" asp-controller="Update" method="post">
+    <div class="form-group">                   
+        <textarea id="whatsNewText" asp-for="Text" class="form-control" rows="1">@Model.Text</textarea>        
+    </div>    
+    <input id="whatsNewImageUrl" asp-for="ImageUrl" type="hidden" value="@Model.ImageUrl"/>
+    <input id="whatsNewVideoUrl" asp-for="VideoUrl" type="hidden" value="@Model.VideoUrl" />
+    <input id="whatsNewGeo" asp-for="Geo" type="hidden" value="@Model.Geo" />
+    <input id="whatsCode" asp-for="Code" type="hidden" value="@Model.Code" />
+
+    <button id="whatsNewSubmitButton" class="btn btn-success">
+        <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> submit
+    </button>
+
+    <div class="dropdown btn-group pull-right">
+        <button id="whatsNewPostButton" type="submit" class="btn btn-primary">
+            <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a data-toggle="modal" data-target="#imageModalForm">image</a></li>            
+            <li><a data-toggle="modal" data-target="#codeModalForm">code</a></li>            
+        </ul>
+    </div>
+
+    @*----------Parts----------*@
+    <div class="margin-top-40 margin-bottom-40">        
+        <div id="whatsNewPost">
+        </div>        
+    </div>
+</form>
+

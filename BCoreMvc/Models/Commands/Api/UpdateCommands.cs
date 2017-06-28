@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
-using BCore.Models.Commands;
+using BCoreMvc.Models.Commands;
 using BCoreMvc.Models.ViewModels.Blog;
 using BCoreDao;
 using Microsoft.Extensions.Configuration;

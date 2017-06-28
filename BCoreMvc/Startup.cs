@@ -38,9 +38,11 @@ namespace BCoreMvc
             _autoMapperConfig(services);
 
             services.AddSingleton<IConfiguration>(Configuration);
-
-            // Add unit of work 
+            
             services.AddScoped<IPostCommands, PostCommands>();
+            services.AddScoped<IFeedCommands, FeedCommands>();
+            services.AddScoped<ITopCommands, TopCommands>();
+            services.AddScoped<IUpdateCommands, UpdateCommands>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

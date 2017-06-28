@@ -1,10 +1,25 @@
 {
-  "name": "asp.net",
-  "private": true,
-  "dependencies": {
-    "bootstrap": "3.3.6",
-    "jquery": "2.2.0",
-    "jquery-validation": "1.14.0",
-    "jquery-validation-unobtrusive": "3.2.6"
-  }
+    "name": "asp.net",
+    "private": true,
+    "dependencies": {
+        "bootstrap": "3.3.7",
+        "autosize": "3.0.17",
+        "jquery": "3.1.1",
+        "jquery-ui": "1.12.1",
+        "blueimp-file-upload": "9.14.0",
+        "nprogress": "0.2.0",
+        "requirejs": "2.3.3",
+        "imagefill.js": "*",
+        "imagesloaded": "4.1.1",
+        "ev-emitter": "1.0.3",
+        "simple-uuid": "1.0.1",
+        "respify": "0.3.2",
+        "jquery-appear": "0.2.6",
+        "Font-Awesome": "4.7.0",
+        "bootbox": "4.4.0",
+        "highlightjs": "9.10.0",
+        "ace-builds": "1.2.6",
+        "simplemde": "1.11.2",
+        "code-prettify": "*"
+    }
 }

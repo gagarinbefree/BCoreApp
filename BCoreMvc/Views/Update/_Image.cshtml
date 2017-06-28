@@ -1,0 +1,29 @@
+﻿<!-- Modal -->
+<div class="modal fade" id="imageModalForm" tabindex="-1" role="dialog" aria-labelledby="modalLabelUpload">    
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header well" id="imageProgressUpload">
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="imageModalLabelUpload"><i class="glyphicon glyphicon-picture"></i> image upload</h4>                                
+            </div>
+
+            <div class="modal-body">                               
+                <h2 id="imageBrowseText">browse image...</h2>
+                <img id="imageUploadPreview" class="img-responsive" />
+
+                <div class="input-group margin-top">
+                    <span class="input-group-btn">
+                        <span id="imageBrowseBtnUpload" class="btn btn-default btn-file">browse...<input id="imageInputUpload" class="file-loading" type="file" name="file"></span>
+                    </span>
+                    <input id="imageFileNameUpload" type="text" class="form-control" readonly>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                <button id="imageButtonUpload" type="submit" class="btn btn-primary">upload</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,6 +7,7 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 using System.IO;
+using Backload.Helper;
 
 namespace BCoreMvc.Controllers
 {

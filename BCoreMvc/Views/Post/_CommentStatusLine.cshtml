@@ -1,0 +1,35 @@
+﻿@model BCoreMvc.Models.ViewModels.Blog.CommentViewModel
+
+<div class="margin-top">
+    <div class="mymedia">
+        @{
+            var user = await UserManager.FindByIdAsync(Model.UserId);
+        }
+        <span class="mymedia-figure" gravatar-email="@user.Email" image-size="48" width="48"></span>
+
+        <div class="mymedia-body">
+            <div class="row">
+                <div class="col-xs-9 block">
+                    <div class="user-name">@user.UserName</div>
+                    <div class="mymedia-status">@Model.DateTime.ToString("dd.MM.yyyy HH:mm")</div>
+                </div>
+
+                @if (Model.StatusLine.IsEditable)
+                {
+                    <div class="col-xs-1 col-xs-push-2 block">
+                        <div class="dropdown pull-right">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
+                            </button>
+                            <ul class="dropdown-menu">                                
+                                <li>
+                                    <a asp-controller="Post" asp-action="DeleteComment" asp-route-commentid="@Model.Id" asp-route-postid="@Model.PostId" data-confirm="Are you sure you want to delete?" data-confirm-title="Delete comment">delete</a>                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

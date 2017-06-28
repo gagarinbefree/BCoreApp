@@ -1,0 +1,164 @@
+﻿body {
+    padding-top: 75px;
+}
+
+textarea {
+    overflow:hidden;    
+    -ms-overflow-style: none;
+}
+
+.margin-top {
+    margin-top: 20px;
+}
+
+.margin-top-40 {
+    margin-top: 40px;
+}
+
+.margin-top-60 {
+    margin-top: 60px;
+}
+
+.margin-top-80 {
+    margin-top: 80px;
+}
+
+.margin-top-100 {
+    margin-top: 100px;
+}
+
+.margin-bottom {
+    margin-bottom: 20px;
+}
+
+.margin-bottom-40 {
+    margin-bottom: 40px;
+}
+
+.margin-bottom-60 {
+    margin-bottom: 60px;
+}
+
+.margin-bottom-80 {
+    margin-bottom: 80px;
+}
+
+.margin-bottom-100 {
+    margin-bottom: 100px;
+}
+
+.wrap {
+    word-wrap: break-word;
+}
+
+.text-error {
+    color: red;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: red;
+    cursor: inherit;
+    display: block;
+}
+
+.preview-well {
+    background-color: #fafafa;
+}
+
+div.center-cropped {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    border: 0;
+}
+
+div.center-cropped img {
+    height: auto!important;
+    max-width: 100%;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+}
+
+.img-absolute {
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
+.user-name {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.mymedia {
+    display: flex;
+    align-items: flex-start;
+}
+
+.mymedia-figure {
+    margin-right: 1em;
+}
+
+.mymedia-body {
+    flex: 1;
+}
+
+.mymedia-status {
+    color: #808080;
+}
+
+.anchor {
+    display: block;
+    height: 200px;
+    margin-top: -200px;
+    visibility: hidden;
+}
+
+/*bug fix with drop down menu and btn-group class*/
+[data-toggle="modal"] {
+    cursor: pointer;  
+}
+
+.btn-group .dropdown-menu {
+    border-top-width: 1px;
+}
+/**/
+
+#codeText {
+    width: 100%;
+    height: 400px;
+    border: 1px solid rgb(204, 204, 204);
+}
+
+.hljs {    
+    font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: small;
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    word-wrap: normal;
+}
+
+pre {    
+    font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: small;
+    word-wrap: normal;
+    overflow-x: auto;
+}

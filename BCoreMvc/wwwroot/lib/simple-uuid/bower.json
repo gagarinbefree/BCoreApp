@@ -1,0 +1,25 @@
+{
+  "name": "simple-uuid",
+  "version": "1.0.1",
+  "homepage": "https://github.com/TylerGarlick/simple-uuid",
+  "authors": [
+    "Tyler Garlick <tjgarlick@gmail.com>"
+  ],
+  "description": "Simple UUID generation",
+  "main": "uuid.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "uuid",
+    "guid"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

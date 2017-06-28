@@ -1,0 +1,13 @@
+{
+  "name": "imagefill.js",
+  "homepage": "https://github.com/johnpolacek/imagefill.js",
+  "_release": "4165b58f89",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "4165b58f89028911126e84c6bc39a69431b7b8c5"
+  },
+  "_source": "https://github.com/johnpolacek/imagefill.js.git",
+  "_target": "*",
+  "_originalSource": "imagefill.js"
+}

@@ -1,0 +1,46 @@
+﻿@model BCoreMvc.Models.ViewModels.Blog.TopViewModel
+
+@using BCoreMvc.Models.Extensions
+
+@{
+    ViewBag.Title = "Top";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="hidden-xs col-sm-2 col-md-3"></div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+        @await Html.PartialAsync("_RecentPosts", Model.RecentPosts, nameof(Model.RecentPosts))
+    </div>
+
+    <div class="hidden-xs col-sm-2 col-md-3"></div>
+</div>
+
+@if (!Model.Pager.IsLastPage())
+{
+    <div class="row">
+        <div class="hidden-xs col-sm-2 col-md-3"></div>
+
+        <div class="col-xs-12 col-sm-8 col-md-6">
+            <div class="pageContainer">
+            </div>
+            <button class="btn btn-default center-block pageButtonDone">done</button>
+            <input asp-for="Pager.Page" value="@Model.Pager.Page" type="hidden" />
+        </div>
+
+        <div class="hidden-xs col-sm-2 col-md-3"></div>
+    </div>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+            $(document).ready(function() {
+                new Common.Pager('/Top/Page'
+                    , '@Model.Pager.Page'
+                    , $('.pageContainer')
+                    , $('.pageButtonDone'));
+            });
+    </script>
+}
+
