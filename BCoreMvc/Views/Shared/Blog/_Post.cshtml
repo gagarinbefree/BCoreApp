@@ -1,0 +1,34 @@
+﻿@model BCore.Models.ViewModels.Blog.PostViewModel
+
+@using BCore.Models.Extensions
+
+<input asp-for="Id" value="@Model.Id" type="hidden" />
+<input asp-for="DateTime" value="@Model.DateTime" type="hidden" />
+
+<div class="margin-top">
+    @if (Model.TopNumber != null && Model.TopNumber > 0)
+    {
+        <div class="margin-bottom"><h4><span class="label label-warning">@Model.TopNumber</span></h4></div>
+    }
+
+    @if (Model.StatusLine != null)
+    {
+        @await Html.PartialAsync("_PostStatusLine", Model)
+    }
+
+    @for (int ii = 0; ii < Model.Parts.Count(); ii++)
+    {
+        Model.Parts[0].IsStrong = ii == 0;
+        @await Html.PartialAsync("_Part", Model.Parts[ii], String.Format("Parts[{0}]", ii));
+    }
+
+    @if (Model.IsPreview)
+    {
+        <div class="margin-top">
+            <a class="btn btn-default" asp-controller="Post" asp-action="Index" asp-route-id="@Model.Id" role="button">read</a>
+            <div class="btn-group pull-right">
+            </div>
+        </div>
+    }
+</div>
+<hr />

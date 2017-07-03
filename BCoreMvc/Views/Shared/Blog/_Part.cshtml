@@ -1,0 +1,31 @@
+﻿@model BCore.Models.ViewModels.Blog.PartViewModel
+
+<div class="margin-top">
+    @if (Model.PartType == 0)
+    {
+        @if (Model.IsStrong)
+        {
+            <h3><text hashing-text="@Model.Value"></text></h3>
+        }
+        else
+        {
+            <div><text hashing-text="@Model.Value"></text></div>
+        }
+    }
+    else if (Model.PartType == 1)
+    {
+        <img class="img-responsive" src="@Model.Value" />
+    }
+    else if (Model.PartType == 2)
+    {
+        <pre class="prettyprint">@Model.Value</pre>
+
+    }
+</div>
+
+<input asp-for="Id" value="@Model.Id" type="hidden" />
+<input asp-for="Value" value="@Model.Value" type="hidden" />
+<input asp-for="PartType" value="@Model.PartType" type="hidden" />
+<input asp-for="DateTime" value="@Model.DateTime" type="hidden" />
+
+

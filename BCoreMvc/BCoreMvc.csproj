@@ -6,12 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="bundleconfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="wwwroot\app\css\site.css" />
-    <Content Include="wwwroot\app\ts\.gulp-tsc-tmp-117325-8068-lqyppi.ts" />
     <Content Include="wwwroot\app\ts\blog\code.ts" />
     <Content Include="wwwroot\app\ts\blog\image.ts" />
     <Content Include="wwwroot\app\ts\blog\whatsNew.ts" />
@@ -51,12 +46,6 @@
     <Content Include="wwwroot\images\earth_white.svg" />
     <Content Include="wwwroot\images\empty_grava.png" />
     <Content Include="wwwroot\images\grava.jpg" />
-    <Content Include="wwwroot\js\blog\code.js" />
-    <Content Include="wwwroot\js\blog\image.js" />
-    <Content Include="wwwroot\js\blog\whatsnew.js" />
-    <Content Include="wwwroot\js\common.js" />
-    <Content Include="wwwroot\js\post\comment.js" />
-    <Content Include="wwwroot\js\site.min.js" />
     <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\36e35496-bd94-4403-b443-3efc463547e8.jpg" />
     <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\91c00cfb-08ea-4c2d-a9f0-5d2e5bb3c20f.jpg" />
     <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\91e20465-e8ff-436e-8b91-d64a3cf1eee8.jpg" />
@@ -105,6 +94,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BCoreDao\BCoreDao.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\" />
+    <Folder Include="wwwroot\js\" />
+    <Folder Include="wwwroot\js\" />
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
 </Project>

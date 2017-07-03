@@ -1,0 +1,37 @@
+﻿[
+    {
+        "outputFileName": "wwwroot/css/site.min.css",
+        "inputFiles": [
+            "wwwroot/lib/Font-Awesome/css/font-awesome.css",
+            "wwwroot/lib/nprogress/nprogress.css",
+            "wwwroot/lib/bootstrap/dist/css/bootstrap-theme.css",
+            "wwwroot/app/css/site.css"
+        ]
+    },
+    {
+        "outputFileName": "wwwroot/js/site.min.js",
+        "inputFiles": [
+            "wwwroot/lib/jquery/dist/jquery.js",
+            "wwwroot/lib/jquery-ui/jquery-ui.js",
+            "wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+            "wwwroot/lib/autosize/dist/autosize.js",
+            "wwwroot/lib/blueimp-file-upload/js/jquery.fileupload.js",
+            "wwwroot/lib/nprogress/nprogress.js",
+            "wwwroot/lib/ev-emitter/ev-emitter.js",
+            "wwwroot/lib/imagesloaded/imagesloaded.js",
+            "wwwroot/lib/imagefill.js/js/jquery-imagefill.js",
+            "wwwroot/lib/jquery.appear/jquery.appear.js",
+            "wwwroot/lib/bootbox/bootbox.js",
+            "wwwroot/lib/highlightjs/highlight.pack.js",
+            "wwwroot/lib/ace-builds/src/ace.js",
+            "wwwroot/lib/code-prettify/src/run_prettify.js",
+            "wwwroot/app/js/app.js"
+        ]
+    },
+    {
+        "outputFileName": "wwwroot/js/app.min.js",
+        "inputFiles": [
+            "wwwroot/app/js/app.js"
+        ]
+    }
+]

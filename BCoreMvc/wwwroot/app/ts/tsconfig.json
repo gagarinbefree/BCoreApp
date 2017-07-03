@@ -4,10 +4,20 @@
         "noEmitOnError": true,
         "removeComments": false,
         "sourceMap": true,
-        "target": "es5"
+        "target": "es5",
+        "outFile": "../js/app.js"
     },
     "exclude": [
         "node_modules",
         "wwwroot"
-    ]
+    ],
+    "files": [
+        "./blog/code.ts",
+        "./blog/image.ts",
+        "./blog/whatsNew.ts",
+        "./post/comment.ts",
+        "./common.ts"
+    ],
+    "compileOnSave": true
 }
+

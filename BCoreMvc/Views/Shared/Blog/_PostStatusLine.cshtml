@@ -1,0 +1,50 @@
+﻿@model BCore.Models.ViewModels.Blog.PostViewModel
+
+@using Microsoft.AspNetCore.Identity
+@using BCore.Dal.Ef;
+@using BCore.Models;
+
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@{
+    var user = await UserManager.FindByIdAsync(Model.UserId);
+}
+
+ 
+
+<div class="mymedia">
+    <span class="mymedia-figure" gravatar-email="@user.Email" image-size="64" width="64"></span>
+    <div class="mymedia-body">
+        <div class="row">
+            <div class="col-xs-9 block">
+                <div class="user-name">@user.UserName</div>
+                <div class="mymedia-status">
+                    @Model.DateTime.ToString("dd.MM.yyyy HH:mm")
+                    &nbsp; <a href="/Post/Index?id=@Model.Id#commentAnchor"><i class="fa fa-commenting"></i> @Model.Comments.Count()</a>
+                    &nbsp;
+                    @foreach (var postHash in Model.Hashes)
+                    {
+                        <a asp-controller="Feed" asp-action="Search" asp-route-tag="@postHash.Tag"><span class="label label-info">@postHash.Tag</span></a>
+                    }
+                </div>
+            </div>
+
+            @if (Model.StatusLine.IsEditable)
+            {
+                <div class="col-xs-1 col-xs-push-2 block">
+                    <div class="dropdown pull-right">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a asp-controller="Update" asp-action="Delete" asp-route-id="@Model.Id" data-confirm="Are you sure you want to delete?" data-confirm-title="Delete post">delete</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

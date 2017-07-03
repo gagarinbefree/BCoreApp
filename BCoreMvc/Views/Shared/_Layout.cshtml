@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="~/css/site.min.css" />    
+    <script src="~/js/site.min.js"></script>
+    <script src="~/js/app.min.js"></script>
+</head>
+<body>
+    <div id="header" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="/images/earth_white.svg" />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-controller="Update" asp-action="Index">whats new</a></li>                    
+                    <li><a asp-controller="Feed" asp-action="Index">feed</a></li>
+                    <li><a asp-controller="Top" asp-action="Index">top</a></li>                    
+                </ul>
+                @await Html.PartialAsync("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">      
+        @RenderBody()
+    </div>
+
+    <footer class="bs-docs-footer">
+        <div class="container">
+            <br />
+            <br />
+            <br />
+        </div>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            new Common.App();
+        });
+    </script>
+</body>
+</html>

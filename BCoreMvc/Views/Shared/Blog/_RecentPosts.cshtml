@@ -1,0 +1,9 @@
+﻿@model List<PostViewModel>
+
+@using BCore.Models.ViewModels.Blog;
+@using BCore.Models.Extensions;
+
+@for (int ii = 0; ii < Model.Count(); ii++)
+{
+    @await Html.PartialAsync("_Post", Model[ii], String.Format("Parts[{0}]", ii))
+}
