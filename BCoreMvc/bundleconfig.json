@@ -27,11 +27,12 @@
             "wwwroot/lib/ace-builds/src/ace.js",
             "wwwroot/lib/code-prettify/src/run_prettify.js"            
         ]
-    },
-    {
-        "outputFileName": "wwwroot/js/app.min.js",
-        "inputFiles": [
-            "wwwroot/app/js/app.js"
-        ]
     }
+    //,
+    //{
+    //    "outputFileName": "wwwroot/js/app.min.js",
+    //    "inputFiles": [
+    //        "wwwroot/app/js/app.js"
+    //    ]
+    //}
 ]
