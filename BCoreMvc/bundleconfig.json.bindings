@@ -1,1 +1,1 @@
-﻿///<binding BeforeBuild='wwwroot/css/site.min.css, wwwroot/js/app.min.js, wwwroot/js/site.min.js' AfterBuild='wwwroot/js/site.min.js' />
+﻿///<binding BeforeBuild='wwwroot/css/site.min.css, wwwroot/js/site.min.js' />
