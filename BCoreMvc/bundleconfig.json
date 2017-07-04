@@ -7,7 +7,8 @@
             "wwwroot/lib/bootstrap/dist/css/bootstrap-theme.css",
             "wwwroot/app/css/site.css"
         ]
-    },
+    }
+    ,
     {
         "outputFileName": "wwwroot/js/site.min.js",
         "inputFiles": [
@@ -24,8 +25,7 @@
             "wwwroot/lib/bootbox/bootbox.js",
             "wwwroot/lib/highlightjs/highlight.pack.js",
             "wwwroot/lib/ace-builds/src/ace.js",
-            "wwwroot/lib/code-prettify/src/run_prettify.js",
-            "wwwroot/app/js/app.js"
+            "wwwroot/lib/code-prettify/src/run_prettify.js"            
         ]
     },
     {
