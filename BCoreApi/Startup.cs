@@ -49,6 +49,8 @@ namespace BCoreApi
                 .AddAuthorization()
                 .AddJsonFormatters();
 
+            services.AddSingleton<IConfiguration>(Configuration);
+
             // Add unit of work 
             services.AddScoped<IUoW, SqlServerUnit>();
         }

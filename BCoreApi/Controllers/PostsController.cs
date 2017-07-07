@@ -12,6 +12,7 @@ using System.Linq.Expressions;
 
 namespace BCoreApi.Controllers
 {
+    [Route("api/[controller]")]
     [Produces("application/json")]    
     public class PostsController : Controller
     {
@@ -25,24 +26,27 @@ namespace BCoreApi.Controllers
         }
 
 
-        [HttpGet("/api/Posts")]
-        public async Task<IActionResult> GetPosts()
-        {
-            return Ok(await _unit.PostRepository.GetAllAsync(take: 1000));
-        }
+        //[HttpGet("/api/Posts")]
+        //public async Task<IActionResult> GetPosts()
+        //{
+        //    return Ok(await _unit.PostRepository.GetAllAsync(take: 1000));
+        //}
 
-        [HttpGet("/api/Posts?page={page}")]
-        public async Task<IActionResult> GetPosts(int page)
-        {            
-            int pageSize = _configuration.GetValue<int>("DefaultPageSize");
+        //[HttpGet("/api/Posts?page={page}")]
+        //[HttpGet("/api/Posts")]
+        //public async Task<IActionResult> GetPosts(int page)
+        //{            
+        //    int pageSize = _configuration.GetValue<int>("DefaultPageSize");
 
-            return Ok(await _unit.PostRepository.GetAllAsync<DateTime>(orderBy: f => f.CreatedOn,
-                sort: SortOrder.Descending,
-                skip: ((page - 1) * pageSize),
-                take: pageSize));
-        }
+        //    return Ok(await _unit.PostRepository.GetAllAsync<DateTime>(orderBy: f => f.CreatedOn,
+        //        sort: SortOrder.Descending,
+        //        skip: ((page - 1) * pageSize),
+        //        take: pageSize));
+        //}
 
-        [HttpGet("/api/Posts?userid={userid}&page={page}")]
+        //[HttpGet("/api/Posts?userid={userid}&page={page}")]
+        //[HttpGet("/api/Posts")]
+        [HttpGet]
         public async Task<IActionResult> GetPosts(string userid, int page)
         {
             int pageSize = _configuration.GetValue<int>("DefaultPageSize");
@@ -54,19 +58,19 @@ namespace BCoreApi.Controllers
                 take: pageSize));
         }
 
-        [HttpGet]
-        [Route("api/Posts/{id}")]        
-        public async Task<IActionResult> GetPost([FromRoute] Guid id)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+        //[HttpGet]
+        //[Route("api/Posts/{id}")]        
+        //public async Task<IActionResult> GetPost([FromRoute] Guid id)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
 
-            Post post = await _unit.PostRepository.GetAsync(f => f.Id == id);
-            if (post == null)
-                return NotFound();
+        //    Post post = await _unit.PostRepository.GetAsync(f => f.Id == id);
+        //    if (post == null)
+        //        return NotFound();
 
-            return Ok(post);
-        }
+        //    return Ok(post);
+        //}
         
         [HttpPut]
         [Route("api/Posts/{id}")]

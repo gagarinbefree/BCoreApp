@@ -69,7 +69,7 @@ namespace BCoreMvc.Models.Commands.Api
 
         protected string GetUserId(ClaimsPrincipal user)
         {
-            var claim = ((ClaimsIdentity)user.Identity).FindFirst(ClaimTypes.NameIdentifier);
+            var claim = ((ClaimsIdentity)user.Identity).FindFirst("sid");
             if (claim != null)
                 return claim.Value;
 
