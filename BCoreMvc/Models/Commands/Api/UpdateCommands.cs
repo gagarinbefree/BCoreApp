@@ -42,7 +42,7 @@ namespace BCoreMvc.Models.Commands.Api
             return await Delete($"Posts/{id}");
         }
 
-        public async Task<UpdateViewModel> GetPostsByUserAsync(ClaimsPrincipal user, int? page = default(int?))
+        public async Task<UpdateViewModel> GetPostsByUserAsync(ClaimsPrincipal user, int page = 1)
         {
             string userId = GetUserId(user);
 

@@ -25,19 +25,22 @@ namespace BCoreMvc.Models.Commands.Api
             Mapper = mapper;
         }
 
-        protected async Task<T> Get<T>(string url, int? page = null)
-        {
-            string pageParam = page != null ? $"?page={page}" : "";
-
+        protected async Task<T> Get<T>(string url)
+        {                   
             string json = "";
             using (HttpClient client = new HttpClient { BaseAddress = new Uri(_apiURL) })
-            using (HttpResponseMessage response = await client.GetAsync($"{url}{pageParam}"))
+            using (HttpResponseMessage response = await client.GetAsync(url))
             using (HttpContent content = response.Content)
             {
                 json = await content.ReadAsStringAsync();
             }
             
             return JsonConvert.DeserializeObject<T>(json);
+        }
+
+        protected async Task<T> Get<T>(string url, int? page)
+        {
+            throw new NotImplementedException();
         }
 
         protected async Task<T> Post<T>(string url, T item)
@@ -69,7 +72,7 @@ namespace BCoreMvc.Models.Commands.Api
 
         protected string GetUserId(ClaimsPrincipal user)
         {
-            var claim = ((ClaimsIdentity)user.Identity).FindFirst("sid");
+            var claim = ((ClaimsIdentity)user.Identity).FindFirst("sub");
             if (claim != null)
                 return claim.Value;
 

@@ -47,15 +47,17 @@ namespace BCoreApi.Controllers
         //[HttpGet("/api/Posts?userid={userid}&page={page}")]
         //[HttpGet("/api/Posts")]
         [HttpGet]
-        public async Task<IActionResult> GetPosts(string userid, int page)
+        public async Task<IActionResult> GetPosts(string userid, int page = 1)
         {
             int pageSize = _configuration.GetValue<int>("DefaultPageSize");
 
-            return Ok(await _unit.PostRepository.GetAllAsync<DateTime>(orderBy: f => f.CreatedOn,
+            ICollection<Post> posts = await _unit.PostRepository.GetAllAsync<DateTime>(orderBy: f => f.CreatedOn,
                 sort: SortOrder.Descending,
                 where: f => f.UserId == userid,
                 skip: ((page - 1) * pageSize),
-                take: pageSize));
+                take: pageSize);
+
+            return Ok(posts);
         }
 
         //[HttpGet]
