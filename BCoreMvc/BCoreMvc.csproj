@@ -5,61 +5,7 @@
     <PackageTargetFallback>portable-net45+win8</PackageTargetFallback>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="wwwroot\app\css\site.css" />
-    <Content Include="wwwroot\app\ts\blog\code.ts" />
-    <Content Include="wwwroot\app\ts\blog\image.ts" />
-    <Content Include="wwwroot\app\ts\blog\whatsNew.ts" />
-    <Content Include="wwwroot\app\ts\common.ts" />
-    <Content Include="wwwroot\app\ts\post\comment.ts" />
-    <Content Include="wwwroot\app\ts\tsconfig.json" />
-    <Content Include="wwwroot\app\typings\ace\index.d.ts" />
-    <Content Include="wwwroot\app\typings\autosize\autosize.d.ts" />
-    <Content Include="wwwroot\app\typings\bootbox\index.d.ts" />
-    <Content Include="wwwroot\app\typings\bootstrap\bootstrap.d.ts" />
-    <Content Include="wwwroot\app\typings\highlightjs\highlightjs.d.ts" />
-    <Content Include="wwwroot\app\typings\imagefill.js\imagefill.js.d.ts" />
-    <Content Include="wwwroot\app\typings\jquery-appear\jquery.appear.js.d.ts" />
-    <Content Include="wwwroot\app\typings\jquery.fileupload\jquery.fileupload.d.ts" />
-    <Content Include="wwwroot\app\typings\jquery\jquery.d.ts" />
-    <Content Include="wwwroot\app\typings\nprogress\NProgress.d.ts" />
-    <Content Include="wwwroot\app\typings\react\react.d.ts" />
-    <Content Include="wwwroot\app\typings\redux\redux.d.ts" />
-    <Content Include="wwwroot\app\typings\respify\respify.d.ts" />
-    <Content Include="wwwroot\app\typings\simple-uuid\simple-uuid.d.ts" />
-    <Content Include="wwwroot\app\typings\simplemde\simplemde.d.ts" />
-    <Content Include="wwwroot\css\site.min.css" />
-    <Content Include="wwwroot\fonts\fontawesome-webfont.eot" />
-    <Content Include="wwwroot\fonts\fontawesome-webfont.svg" />
-    <Content Include="wwwroot\fonts\fontawesome-webfont.ttf" />
-    <Content Include="wwwroot\fonts\fontawesome-webfont.woff" />
-    <Content Include="wwwroot\fonts\fontawesome-webfont.woff2" />
-    <Content Include="wwwroot\fonts\FontAwesome.otf" />
-    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="wwwroot\images\core_logo.jpg" />
-    <Content Include="wwwroot\images\core_logo_small.jpg" />
-    <Content Include="wwwroot\images\earth.svg" />
-    <Content Include="wwwroot\images\earth_white.svg" />
-    <Content Include="wwwroot\images\empty_grava.png" />
-    <Content Include="wwwroot\images\grava.jpg" />
-    <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\36e35496-bd94-4403-b443-3efc463547e8.jpg" />
-    <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\91c00cfb-08ea-4c2d-a9f0-5d2e5bb3c20f.jpg" />
-    <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\91e20465-e8ff-436e-8b91-d64a3cf1eee8.jpg" />
-    <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\9a2ac972-8ede-42c6-8ef5-7d8f1872cb10.jpg" />
-    <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\abe72b37-b8ce-40de-8a2c-b5792e90cde0.jpg" />
-    <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\ce74afaa-7569-4736-a0ba-cdda2069e266.jpg" />
-    <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\_thumbs\36e35496-bd94-4403-b443-3efc463547e8.jpg.png" />
-    <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\_thumbs\91c00cfb-08ea-4c2d-a9f0-5d2e5bb3c20f.jpg.png" />
-    <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\_thumbs\91e20465-e8ff-436e-8b91-d64a3cf1eee8.jpg.png" />
-    <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\_thumbs\9a2ac972-8ede-42c6-8ef5-7d8f1872cb10.jpg.png" />
-    <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\_thumbs\abe72b37-b8ce-40de-8a2c-b5792e90cde0.jpg.png" />
-    <Content Include="wwwroot\Uploads\d85e1ae0-3a4e-4a13-9eaa-0dc2c6be70f2\_thumbs\ce74afaa-7569-4736-a0ba-cdda2069e266.jpg.png" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.1.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="2.0.1" />

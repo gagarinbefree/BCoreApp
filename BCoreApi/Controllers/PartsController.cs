@@ -22,7 +22,7 @@ namespace BCoreApi.Controllers
         [Route("api/Posts/{id}/Parts")]
         public async Task<IActionResult> GetParts([FromRoute] Guid id)
         {
-            Post post = await _unit.PostRepository.GetAsync(f => f.Id == id);
+            Post post = await _unit.PostRepository.GetAsync(f => f.Id == id, f => f.Parts);
             if (post == null)
                 return NotFound();
 
