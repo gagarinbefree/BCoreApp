@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using BCoreIdentity.Models;
 using BCoreIdentity.Services;
 using BCoreDal.SqlServer;
+using Microsoft.AspNetCore.Identity;
 
 namespace BCoreIdentity
 {

@@ -13,6 +13,8 @@ using BCoreDao;
 using BCoreMvc.Models.Commands;
 using BCoreMvc.Models.Commands.Api;
 using Backload.MiddleWare;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
 namespace BCoreMvc
 {
@@ -42,7 +44,7 @@ namespace BCoreMvc
             services.AddScoped<IPostCommands, PostCommands>();
             services.AddScoped<IFeedCommands, FeedCommands>();
             services.AddScoped<ITopCommands, TopCommands>();
-            services.AddScoped<IUpdateCommands, UpdateCommands>();
+            services.AddScoped<IUpdateCommands, UpdateCommands>();            
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -61,7 +63,11 @@ namespace BCoreMvc
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            //app.UseAuthentication();
+
+
+
+            /*app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationScheme = "Cookies"
             });
@@ -82,8 +88,8 @@ namespace BCoreMvc
 
                 GetClaimsFromUserInfoEndpoint = true,
                 SaveTokens = true
-            });
-            
+            });*/
+
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
             app.UseBackload();

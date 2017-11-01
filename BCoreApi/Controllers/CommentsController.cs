@@ -23,7 +23,7 @@ namespace BCoreApi.Controllers
         [Route("api/Posts/{id}/Comments")]
         public async Task<IActionResult> GetComments([FromRoute] Guid id)
         {
-            Post post = await _unit.PostRepository.GetAsync(f => f.Id == id);
+            Post post = await _unit.PostRepository.GetAsync(id);
             if (post == null)
                 return NotFound();
 

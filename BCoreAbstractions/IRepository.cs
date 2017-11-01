@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace BCoreAbstractions
     {
         Task<Guid> CreateAsync(T item);
         Task<int> DeleteAsync(T item);
-        Task<int> DeleteAsync(Guid id);
+        Task<int> DeleteAsync(Guid id);        
 
         Task<ICollection<T>> GetAllAsync(Expression<Func<T, bool>> where = null
             , params Expression<Func<T, object>>[] includes);

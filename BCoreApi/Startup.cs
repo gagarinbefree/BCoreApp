@@ -13,6 +13,7 @@ using BCoreApi.Services;
 using BCoreDao;
 using BCoreDal;
 using BCoreDal.SqlServer;
+using IdentityServer4.AccessTokenValidation;
 
 namespace BCoreApi
 {

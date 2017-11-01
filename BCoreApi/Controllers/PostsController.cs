@@ -51,7 +51,8 @@ namespace BCoreApi.Controllers
         {
             int pageSize = _configuration.GetValue<int>("DefaultPageSize");
 
-            ICollection<Post> posts = await _unit.PostRepository.GetAllAsync<DateTime>(orderBy: f => f.CreatedOn,
+            ICollection<Post> posts = await _unit.PostRepository
+                .GetAllAsync<DateTime>(orderBy: f => f.CreatedOn,
                 sort: SortOrder.Descending,
                 where: f => f.UserId == userid,
                 skip: ((page - 1) * pageSize),
