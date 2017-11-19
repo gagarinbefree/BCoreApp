@@ -36,7 +36,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BCoreDal\BCoreDal.csproj" />
-    <ProjectReference Include="..\BCoreIdentity\BCoreIdentity.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\css\" />

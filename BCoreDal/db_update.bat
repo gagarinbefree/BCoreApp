@@ -1,6 +1,6 @@
 rd /s /q "Migrations"
 
-dotnet ef migrations remove
-dotnet ef migrations add inital
-dotnet ef database update 
+dnx ef migrations remove
+dnx ef migrations add inital
+dnx ef database update 
 pause >nul

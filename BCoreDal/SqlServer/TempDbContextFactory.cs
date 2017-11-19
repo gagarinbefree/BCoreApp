@@ -9,18 +9,22 @@ namespace BCoreDal.SqlServer
 {
     public class TempDbContextFactory : IDesignTimeDbContextFactory<SqlServerDbContext>
     {        
-        public SqlServerDbContext Create(DbContextFactoryOptions options)
-        {            
-            var builder = new DbContextOptionsBuilder<SqlServerDbContext>();
-            //builder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=bcoreapp;Trusted_Connection=True;MultipleActiveResultSets=true");
-            builder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=bcoreapp;Integrated Security=True;MultipleActiveResultSets=True");
+        //public SqlServerDbContext Create(DbContextFactoryOptions options)
+        //{            
+        //    var builder = new DbContextOptionsBuilder<SqlServerDbContext>();
+        //    //builder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=bcoreapp;Trusted_Connection=True;MultipleActiveResultSets=true");
+        //    builder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=bcoreapp;Integrated Security=True;MultipleActiveResultSets=True");
 
-            return new SqlServerDbContext(builder.Options);
-        }
+        //    return new SqlServerDbContext(builder.Options);
+        //}
 
         public SqlServerDbContext CreateDbContext(string[] args)
         {
-            throw new NotImplementedException();
-        }
+            var optionsBuilder = new DbContextOptionsBuilder<SqlServerDbContext>();
+            optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=bcoreapp;Integrated Security=True;MultipleActiveResultSets=True");
+
+            return new SqlServerDbContext(optionsBuilder.Options);
+        }        
     }
 }
+

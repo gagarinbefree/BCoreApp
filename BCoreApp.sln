@@ -1,24 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCoreDal", "BCoreDal\BCoreDal.csproj", "{2E0758AB-CF1D-4097-9F50-8EF29E113EF0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCoreIdentity", "BCoreIdentity\BCoreIdentity.csproj", "{DCA80A96-E494-4082-BB20-AEEB19BFD5E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCoreAbstractions", "BCoreAbstractions\BCoreAbstractions.csproj", "{23D6475C-416F-4B3F-8914-C7F90DE6B40F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCoreAbstractions", "BCoreAbstractions\BCoreAbstractions.csproj", "{23D6475C-416F-4B3F-8914-C7F90DE6B40F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCoreApi", "BCoreApi\BCoreApi.csproj", "{870612DC-F060-4E94-96C9-26E876C60C92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCoreApi", "BCoreApi\BCoreApi.csproj", "{870612DC-F060-4E94-96C9-26E876C60C92}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCoreMvc", "BCoreMvc\BCoreMvc.csproj", "{351A49AD-6E09-46E7-84FF-12E82AC9265C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCoreDao", "BCoreDao\BCoreDao.csproj", "{EEF1E642-FE0A-4733-BAFC-3A33E1D00392}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCoreDao", "BCoreDao\BCoreDao.csproj", "{EEF1E642-FE0A-4733-BAFC-3A33E1D00392}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3B4060B3-E859-4AF7-9CAE-DBCDBEFE1586}"
 	ProjectSection(SolutionItems) = preProject
 		memo.txt = memo.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCoreIdentity", "BCoreIdentity\BCoreIdentity.csproj", "{07A2E024-263E-40DA-B8A8-A77328E4ED41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,10 +30,6 @@ Global
 		{2E0758AB-CF1D-4097-9F50-8EF29E113EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E0758AB-CF1D-4097-9F50-8EF29E113EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E0758AB-CF1D-4097-9F50-8EF29E113EF0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DCA80A96-E494-4082-BB20-AEEB19BFD5E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCA80A96-E494-4082-BB20-AEEB19BFD5E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCA80A96-E494-4082-BB20-AEEB19BFD5E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCA80A96-E494-4082-BB20-AEEB19BFD5E4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{23D6475C-416F-4B3F-8914-C7F90DE6B40F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{23D6475C-416F-4B3F-8914-C7F90DE6B40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23D6475C-416F-4B3F-8914-C7F90DE6B40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -50,8 +46,15 @@ Global
 		{EEF1E642-FE0A-4733-BAFC-3A33E1D00392}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEF1E642-FE0A-4733-BAFC-3A33E1D00392}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEF1E642-FE0A-4733-BAFC-3A33E1D00392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07A2E024-263E-40DA-B8A8-A77328E4ED41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07A2E024-263E-40DA-B8A8-A77328E4ED41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07A2E024-263E-40DA-B8A8-A77328E4ED41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07A2E024-263E-40DA-B8A8-A77328E4ED41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C73393ED-65A1-4288-ABC7-DF8F268D71E0}
 	EndGlobalSection
 EndGlobal

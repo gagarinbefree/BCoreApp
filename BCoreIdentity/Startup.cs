@@ -9,6 +9,7 @@ using BCoreIdentity.Models;
 using BCoreIdentity.Services;
 using BCoreDal.SqlServer;
 using Microsoft.AspNetCore.Identity;
+using BCoreDal;
 
 namespace BCoreIdentity
 {
@@ -29,14 +30,11 @@ namespace BCoreIdentity
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-
-
+        {            
             // Add framework services.
-            services.AddDbContext<SqlServerDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddDbContext<SqlServerDbContext>();
 
-            services.AddIdentity<SqlServerAppUser, IdentityRole>(o => {
+            /*services.AddIdentity<SqlServerAppUser, IdentityRole>(o => {
                 o.Password.RequireDigit = false;
                 o.Password.RequireLowercase = false;
                 o.Password.RequireUppercase = false;
@@ -44,23 +42,53 @@ namespace BCoreIdentity
                 o.Password.RequiredLength = 3;
             })
             .AddEntityFrameworkStores<SqlServerDbContext>()
-            .AddDefaultTokenProviders();
+            .AddDefaultTokenProviders();*/
 
             services.AddMvc();
 
-            // Add application services.
-            services.AddTransient<IEmailSender, AuthMessageSender>();
-            services.AddTransient<ISmsSender, AuthMessageSender>();
+            //services.AddIdentityServer()
+            //    .AddDeveloperSigningCredential()
+            //    .AddInMemoryApiResources(Config.GetApiResources())
+            //    .AddInMemoryIdentityResources(Config.GetIdentityResources())
+            //    .AddInMemoryClients(Config.GetClients())
+            //    .AddAspNetIdentity<SqlServerAppUser>();
+
+            services.AddIdentity<SqlServerAppUser, IdentityRole>(
+                options =>
+                options.Password = new PasswordOptions
+                {
+                    RequireDigit = false,
+                    RequiredLength = 3,
+                    RequireLowercase = false,
+                    RequireUppercase = false,
+                    RequireNonAlphanumeric = false
+                }
+            ).AddEntityFrameworkStores<SqlServerDbContext>()
+            .AddDefaultTokenProviders();
 
             services.AddIdentityServer()
-                .AddTemporarySigningCredential()
+                .AddDeveloperSigningCredential()
                 .AddInMemoryPersistedGrants()
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
                 .AddAspNetIdentity<SqlServerAppUser>();
 
-            services.AddSingleton<IConfiguration>(Configuration);
+            //.AddTestUsers(Config.GetUsers());
+
+            // Add application services.
+            services.AddTransient<IEmailSender, EmailSender>();
+            //services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            /*services.AddIdentityServer()
+                .AddTemporarySigningCredential()
+                .AddInMemoryPersistedGrants()
+                .AddInMemoryIdentityResources(Config.GetIdentityResources())
+                .AddInMemoryApiResources(Config.GetApiResources())
+                .AddInMemoryClients(Config.GetClients())
+                .AddAspNetIdentity<SqlServerAppUser>();*/
+
+            services.AddSingleton<IConfiguration>(Configuration);            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,9 +108,9 @@ namespace BCoreIdentity
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseStaticFiles();
+            //app.UseStaticFiles();
 
-            app.UseIdentity();
+            /*app.UseIdentity();
             app.UseIdentityServer();
 
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
@@ -92,14 +120,18 @@ namespace BCoreIdentity
                 SignInScheme = "Identity.External", // this is the name of the cookie middleware registered by UseIdentity()
                 ClientId = "998042782978-s07498t8i8jas7npj4crve1skpromf37.apps.googleusercontent.com",
                 ClientSecret = "HsnwJri_53zn7VcO1Fm7THBb",
-            });
+            });*/
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseIdentityServer();
+            app.UseStaticFiles();
+            app.UseMvcWithDefaultRoute();
+
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Index}/{id?}");
+            //});
         }
     }
 }

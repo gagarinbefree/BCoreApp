@@ -45,6 +45,14 @@ namespace BCoreApi
             services.AddDbContext<SqlServerDbContext>(options =>
                 options.UseSqlServer(connection));
 
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = "http://localhost:5000"; // Auth Server
+                    options.RequireHttpsMetadata = false; // only for development
+                    options.ApiName = "BCoreIdentity"; // API Resource Id
+                });
+
             services.AddMvcCore()
                 .AddAuthorization()
                 .AddJsonFormatters();
@@ -54,14 +62,14 @@ namespace BCoreApi
             // Add unit of work 
             services.AddScoped<IUoW, SqlServerUnit>();
 
-            services.AddAuthentication(
-               IdentityServerAuthenticationDefaults.JwtAuthenticationScheme)
-                    .AddIdentityServerAuthentication(options =>
-                    {
-                        options.Authority = "http://localhost:5000"; // Auth Server
-                        options.RequireHttpsMetadata = false; // only for development
-                        options.ApiName = "fiver_auth_api"; // API Resource Id
-                    });
+            //services.AddAuthentication(
+            //   IdentityServerAuthenticationDefaults.JwtAuthenticationScheme)
+            //        .AddIdentityServerAuthentication(options =>
+            //        {
+            //            options.Authority = "http://localhost:5000"; // Auth Server
+            //            options.RequireHttpsMetadata = false; // only for development
+            //            options.ApiName = "fiver_auth_api"; // API Resource Id
+            //        });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,7 +80,7 @@ namespace BCoreApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseIdentityServer();
+            //app.UseIdentityServer();
 
             //app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
             //{
@@ -81,7 +89,8 @@ namespace BCoreApi
             //    ApiName = "BCoreIdentity"
             //});
 
-            app.UseMvc();            
+            app.UseAuthentication();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

@@ -10,6 +10,11 @@ namespace BCoreDal.SqlServer
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Data Source=.\SQLEXPRESS;Initial Catalog=bcoreapp;Integrated Security=True;MultipleActiveResultSets=True");
+        }
+
         public DbSet<Post> Posts { get; set; }
         public DbSet<Part> Parts { get; set; }
         public DbSet<Comment> Comments { get; set; }

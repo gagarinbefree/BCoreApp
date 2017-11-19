@@ -35,6 +35,31 @@ namespace BCoreMvc
 
         public void ConfigureServices(IServiceCollection services)
         {
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme =
+                    CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme =
+                    OpenIdConnectDefaults.AuthenticationScheme;
+            })
+            .AddCookie()
+            .AddOpenIdConnect(options =>
+            {
+                options.SignInScheme =
+                    CookieAuthenticationDefaults.AuthenticationScheme;
+                options.Authority = "http://localhost:5000"; // Auth Server
+                options.RequireHttpsMetadata = false; // only for development 
+                options.ClientId = "BCoreIdentity"; // client setup in Auth Server
+                options.ClientSecret = "secret";
+                options.ResponseType = "code id_token"; // means Hybrid flow
+                options.Scope.Add("fiver_auth_api");
+                options.Scope.Add("offline_access");
+                options.GetClaimsFromUserInfoEndpoint = true;
+                options.SaveTokens = true;
+            });
+
             services.AddMvc();
 
             _autoMapperConfig(services);
@@ -44,13 +69,13 @@ namespace BCoreMvc
             services.AddScoped<IPostCommands, PostCommands>();
             services.AddScoped<IFeedCommands, FeedCommands>();
             services.AddScoped<ITopCommands, TopCommands>();
-            services.AddScoped<IUpdateCommands, UpdateCommands>();            
+            services.AddScoped<IUpdateCommands, UpdateCommands>();      
+            
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
@@ -89,6 +114,8 @@ namespace BCoreMvc
                 GetClaimsFromUserInfoEndpoint = true,
                 SaveTokens = true
             });*/
+
+            app.UseAuthentication();
 
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
