@@ -53,18 +53,17 @@ namespace BCoreIdentity
             //    .AddInMemoryClients(Config.GetClients())
             //    .AddAspNetIdentity<SqlServerAppUser>();
 
-            services.AddIdentity<SqlServerAppUser, IdentityRole>(
-                options =>
-                options.Password = new PasswordOptions
+            services.AddIdentity<SqlServerAppUser, IdentityRole>(o =>
+                o.Password = new PasswordOptions
                 {
                     RequireDigit = false,
                     RequiredLength = 3,
                     RequireLowercase = false,
                     RequireUppercase = false,
                     RequireNonAlphanumeric = false
-                }
-            ).AddEntityFrameworkStores<SqlServerDbContext>()
-            .AddDefaultTokenProviders();
+                })
+                .AddEntityFrameworkStores<SqlServerDbContext>()
+                .AddDefaultTokenProviders();
 
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
