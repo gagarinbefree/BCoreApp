@@ -1,2 +1,3 @@
 ќграничение количества выполнений метода:
 https://habrahabr.ru/post/331612/
+https://stackoverflow.com/questions/39611172/troubleshooting-identity-server-4
