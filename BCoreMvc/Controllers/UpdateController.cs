@@ -9,7 +9,7 @@ using BCoreMvc.Models.Commands;
 
 namespace BCoreMvc.Controllers
 {
-    [Authorize]
+   
     public class UpdateController : Controller
     {
         private readonly IUpdateCommands _commands;

@@ -1,8 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using BCore.Dal.Ef
+@using BCoreDal.SqlServer
 
-@inject SignInManager<User> SignInManager
-@inject UserManager<User> UserManager
+
+@inject SignInManager<SqlServerAppUser> SignInManager
+@inject UserManager<SqlServerAppUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {

@@ -71,8 +71,12 @@ namespace BCoreIdentity
                         new Secret("secret".Sha256())
                     },
 
-                    RedirectUris = { "http://localhost:5002/signin-oidc" },
-                    PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+                    //RedirectUris = { "http://localhost:5002/signin-oidc" },
+                    //PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+
+                    RedirectUris =           { "http://localhost:5002/index.html" },
+                    PostLogoutRedirectUris = { "http://localhost:5002/index.html" },
+                    AllowedCorsOrigins =     { "http://localhost:5002" },
 
                     AllowedScopes =
                     {

@@ -15,6 +15,8 @@ using BCoreMvc.Models.Commands.Api;
 using Backload.MiddleWare;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Identity;
+using BCoreDal.SqlServer;
 
 namespace BCoreMvc
 {
@@ -59,6 +61,8 @@ namespace BCoreMvc
                 options.GetClaimsFromUserInfoEndpoint = true;
                 options.SaveTokens = true;
             });
+
+            services.AddScoped<SignInManager<SqlServerAppUser>, SignInManager<SqlServerAppUser>>();
 
             services.AddMvc();
 
